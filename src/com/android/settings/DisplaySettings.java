@@ -44,7 +44,7 @@ import android.provider.Settings;
 import android.util.Log;
 
 import com.android.internal.view.RotationPolicy;
-import com.android.settings.cyanogenmod.DisplayRotation;
+import com.android.settings.chameleonos.DisplayRotation;
 
 import java.util.ArrayList;
 

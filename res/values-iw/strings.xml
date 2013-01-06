@@ -1874,7 +1874,7 @@
     <string name="device_hostname">שם המכשיר</string>
 
     <!-- About phone screen,  setting option name-->
-    <string name="mod_version">גרסת CyanogenMod</string>
+    <string name="mod_version">גרסת ChameleonOS</string>
     <string name="mod_version_default">לא ידועה</string>
     <!-- About phone screen, build date of ROM -->
     <string name="build_date">תאריך Build</string>
@@ -1887,10 +1887,10 @@
 
     <!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">סטטיסטיקות CyanogenMod</string>
-    <string name="anonymous_statistics_summary">עזור לנו לשפר את CyanogenMod בעזרת הצטרפות לדיווח של סטטיסטיקות חסויות</string>
+    <string name="anonymous_statistics_title">סטטיסטיקות ChameleonOS</string>
+    <string name="anonymous_statistics_summary">עזור לנו לשפר את ChameleonOS בעזרת הצטרפות לדיווח של סטטיסטיקות חסויות</string>
     <string name="anonymous_statistics_warning_title">אודות</string>
-    <string name="anonymous_statistics_warning">הצטרפות לסטטיסטיקות CyanogenMod יאפשרו למידע שאינו אישי להשלח אל מפתחי CyanogenMod לשם מעקב אחר התקנות מכשירים יחודיות. המידע שנשלח כולל מזהה ייחודי, שאינו פוגע בפרטיותך ואינו חושף מידע אישי. המידע ישלח בכל פעם בה יופעל המכשיר.\n\nלהצגת דוגמה של המידע הנשלח לחץ על \"תצוגה מקדימה\".</string>
+    <string name="anonymous_statistics_warning">הצטרפות לסטטיסטיקות ChameleonOS יאפשרו למידע שאינו אישי להשלח אל מפתחי ChameleonOS לשם מעקב אחר התקנות מכשירים יחודיות. המידע שנשלח כולל מזהה ייחודי, שאינו פוגע בפרטיותך ואינו חושף מידע אישי. המידע ישלח בכל פעם בה יופעל המכשיר.\n\nלהצגת דוגמה של המידע הנשלח לחץ על \"תצוגה מקדימה\".</string>
     <string name="enable_reporting_title">הפעל דיווח</string>
     <string name="preview_data_title">תצוגה מקדימה</string>
     <string name="preview_data_summary">%s</string>
@@ -1898,7 +1898,7 @@
     <string name="anonymous_learn_more">למד עוד</string>
 
     <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">הפעל או בטל את סטטיסטיקות CyanogenMod</string>
+    <string name="anonymous_notification_desc">הפעל או בטל את סטטיסטיקות ChameleonOS</string>
 
     <!-- Anonymous Statistics - Preview -->
     <string name="preview_id_title">מזהה ייחודי</string>
@@ -2371,8 +2371,8 @@
     <string name="power_menu_sound_title">אפשרויות קול</string>
 
     <!-- CM Updater -->
-    <string name="cmupdate_settings_title">עדכוני CyanogenMod</string>
-    <string name="cmupdate_settings_summary">בדוק, צפה או התקן עדכונים </string>
+    <string name="cosupdate_settings_title">עדכוני ChameleonOS</string>
+    <string name="cosupdate_settings_summary">בדוק, צפה או התקן עדכונים </string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">מתקדם</string>

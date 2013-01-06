@@ -963,7 +963,7 @@
         <activity android:name="ChooseLockPatternTutorial" android:exported="false"/>
 
         <!-- Anonymous Statistics -->
-        <receiver android:name=".cmstats.ReportingServiceManager"
+        <receiver android:name=".cosstats.ReportingServiceManager"
             android:enabled="true"
             android:exported="false"
             android:label="ReportingServiceManager">
@@ -976,7 +976,7 @@
         <service android:label="ReportingService"
             android:enabled="true"
             android:exported="false"
-            android:name=".cmstats.ReportingService">
+            android:name=".cosstats.ReportingService">
         </service>
 
         <!-- Runs in the phone process since it needs access to the Phone object -->
@@ -1459,11 +1459,11 @@
         />
 
         <!-- CyanogenMod activities Start -->
-        <activity android:name=".cyanogenmod.PowerWidget" />
+        <activity android:name=".chameleonos.PowerWidget" />
 
-        <activity android:name=".cyanogenmod.SystemSettings" />
+        <activity android:name=".chameleonos.SystemSettings" />
 
-        <activity android:name=".cyanogenmod.PerformanceSettings" />
+        <activity android:name=".chameleonos.PerformanceSettings" />
 
         <activity android:name=".profiles.ProfilesSettings" />
         <activity android:name="Settings$ProfilesSettingsActivity"
@@ -1507,17 +1507,17 @@
 
         <activity android:name=".profiles.NFCProfileSelect" />
 
-        <activity android:name=".cyanogenmod.LockscreenTargets" />
+        <activity android:name=".chameleonos.LockscreenTargets" />
 
-        <activity android:name=".cyanogenmod.ChangeLog" />
+        <activity android:name=".chameleonos.ChangeLog" />
 
-        <activity android:name=".cyanogenmod.LockscreenInterface" />
+        <activity android:name=".chameleonos.LockscreenInterface" />
 
-        <activity android:name=".cyanogenmod.LockscreenButtons" />
+        <activity android:name=".chameleonos.LockscreenButtons" />
 
-        <activity android:name=".cyanogenmod.PowerMenu" />
+        <activity android:name=".chameleonos.PowerMenu" />
 
-        <activity android:name=".cyanogenmod.QuickSettings" />
+        <activity android:name=".chameleonos.QuickSettings" />
 
         <activity android:name=".profiles.NFCProfile"
                 android:theme="@android:style/Theme.NoDisplay">
@@ -1539,7 +1539,7 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:clearTaskOnLaunch="true">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.cmstats.AnonymousStats" />
+                android:value="com.android.settings.cosstats.AnonymousStats" />
         </activity>
 
         <!-- CyanogenMod activities End -->
@@ -1597,7 +1597,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">
+        <receiver android:name=".chameleonos.BootReceiver" android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

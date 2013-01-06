@@ -26,7 +26,7 @@
 
     <PreferenceScreen
         android:title="@string/preview_data_title"
-        android:fragment="com.android.settings.cmstats.PreviewData" />
+        android:fragment="com.android.settings.cosstats.PreviewData" />
 
     <Preference
         android:key="pref_view_stats"

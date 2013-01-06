@@ -1883,7 +1883,7 @@
     <string name="device_hostname">Enhedens værtsnavn</string>
 
     <!-- About phone screen, setting option name-->
-    <string name="mod_version">CyanogenMod-version</string>
+    <string name="mod_version">ChameleonOS-version</string>
     <string name="mod_version_default">Ukendt</string>
     <!-- About phone screen, build date of ROM -->
     <string name="build_date">Kørselsdato</string>
@@ -1895,10 +1895,10 @@
 
     <!-- Anonymous Statistics -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">CyanogenMod-statistikker</string>
-    <string name="anonymous_statistics_summary">Hjælp med at gøre CyanogenMod bedre ved at deltage i rapportering af anonyme statistikker</string>
+    <string name="anonymous_statistics_title">ChameleonOS-statistikker</string>
+    <string name="anonymous_statistics_summary">Hjælp med at gøre ChameleonOS bedre ved at deltage i rapportering af anonyme statistikker</string>
     <string name="anonymous_statistics_warning_title">Om</string>
-    <string name="anonymous_statistics_warning">Deltagelse af CyanogenMod-statistikker vil tillade ikke-personlige data, der skal forelægges for udviklerne af CyanogenMod, at spore unikke installationer på tværs af enheder. De indsendte oplysninger omfatter en entydig indikator, som ikke kompromitterer dit privatliv eller personlige data. Dataene indsendes under hver opstart.\n\nFor et eksempel på de data, der er indsendt, skal du trykke på Få vist data.</string>
+    <string name="anonymous_statistics_warning">Deltagelse af ChameleonOS-statistikker vil tillade ikke-personlige data, der skal forelægges for udviklerne af ChameleonOS, at spore unikke installationer på tværs af enheder. De indsendte oplysninger omfatter en entydig indikator, som ikke kompromitterer dit privatliv eller personlige data. Dataene indsendes under hver opstart.\n\nFor et eksempel på de data, der er indsendt, skal du trykke på Få vist data.</string>
     <string name="enable_reporting_title">Aktivér rapportering</string>
     <string name="preview_data_title">Få vist data</string>
     <string name="preview_data_summary">%s</string>
@@ -1906,7 +1906,7 @@
     <string name="anonymous_learn_more">Læs mere</string>
 
     <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">Aktivér eller deaktiver CyanogenMod-statistikker</string>
+    <string name="anonymous_notification_desc">Aktivér eller deaktiver ChameleonOS-statistikker</string>
 
     <!-- Anonymous Statistics - Preview -->
     <string name="preview_id_title">Unikt ID</string>
@@ -2359,8 +2359,8 @@
     <string name="power_menu_sound_title">Lydpanel</string>
 
     <!-- CM Updater -->
-    <string name="cmupdate_settings_title">CyanogenMod-opdateringer</string>
-    <string name="cmupdate_settings_summary">Tjek for, se eller installér tilgængelige opdateringer</string>
+    <string name="cosupdate_settings_title">ChameleonOS-opdateringer</string>
+    <string name="cosupdate_settings_summary">Tjek for, se eller installér tilgængelige opdateringer</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings -->
     <string name="advanced_settings_title">Avanceret</string>

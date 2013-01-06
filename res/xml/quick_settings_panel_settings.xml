@@ -44,7 +44,7 @@
             android:key="tile_picker"
             android:title="@string/tile_picker_title"
             android:summary="@string/tile_picker_summary"
-            android:fragment="com.android.settings.cyanogenmod.QuickSettingsTiles" />
+            android:fragment="com.android.settings.chameleonos.QuickSettingsTiles" />
 
         <MultiSelectListPreference
             android:key="pref_ring_mode"

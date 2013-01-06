@@ -1881,7 +1881,7 @@
     <string name="device_hostname">Hostname dispositivo</string>
 
     <!-- About phone screen,  setting option name-->
-    <string name="mod_version">Versione CyanogenMod</string>
+    <string name="mod_version">Versione ChameleonOS</string>
     <string name="mod_version_default">Sconoscito</string>
     <!-- About phone screen, build date of ROM -->
     <string name="build_date">"Data build"</string>
@@ -1894,7 +1894,7 @@
 
     <!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">"Statistiche CyanogenMod"</string>
+    <string name="anonymous_statistics_title">"Statistiche ChameleonOS"</string>
     <string name="anonymous_statistics_summary">"Aiuta a migliorare la Cyanogenmod acconsentendo ad inviare statistiche anonime"</string>
     <string name="anonymous_statistics_warning_title">"Informazioni"</string>
     <string name="anonymous_statistics_warning">"Consentire di inviare statistiche anonime permetterà l\'invio di dati non personali agli sviluppatori di Cyanogenmod per contare il numero di installazioni uniche sui diversi terminali. Le informazioni inviate includono un identificativo univoco che non compromette la tua privacy o i tuoi dati personali. I dati sono inviati ad ogni avvio.\n\nPer un esempio dei dati inviati premere su Anteprima dati."</string>
@@ -1905,7 +1905,7 @@
     <string name="anonymous_learn_more">"Maggiori informazioni"</string>
 
     <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">"Attiva o disattiva le statistiche CyanogenMod"</string>
+    <string name="anonymous_notification_desc">"Attiva o disattiva le statistiche ChameleonOS"</string>
 
     <!-- Anonymous Statistics - Preview -->
     <string name="preview_id_title">"ID Univoco"</string>
@@ -2372,8 +2372,8 @@
     <string name="power_menu_sound_title">Pannello suoni</string>
 
     <!-- CM Updater -->
-    <string name="cmupdate_settings_title">Aggiornamento CyanogenMod</string>
-    <string name="cmupdate_settings_summary">Controlla visualizza e installa gli aggiornamenti disponibili</string>
+    <string name="cosupdate_settings_title">Aggiornamento ChameleonOS</string>
+    <string name="cosupdate_settings_summary">Controlla visualizza e installa gli aggiornamenti disponibili</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">"Avanzate"</string>

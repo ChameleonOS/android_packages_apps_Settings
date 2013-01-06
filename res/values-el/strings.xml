@@ -1879,7 +1879,7 @@
     <string name="device_hostname">Hostname συσκευής</string>
 
     <!-- About phone screen,  setting option name-->
-    <string name="mod_version">Έκδοση CyanogenMod</string>
+    <string name="mod_version">Έκδοση ChameleonOS</string>
     <string name="mod_version_default">Άγνωστη</string>
     <!-- About phone screen, build date of ROM -->
     <string name="build_date">Ημερομηνία έκδοσης</string>
@@ -1891,11 +1891,11 @@
 
     <!-- Anonymous Statistics  -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">Στατιστικά CyanogenMod</string>
-    <string name="anonymous_statistics_summary">Βοηθήστε το CyanogenMod να γίνει καλύτερο ενεργοποιώντας την αποστολή ανώνυμων στατιστικών στοιχείων</string>
+    <string name="anonymous_statistics_title">Στατιστικά ChameleonOS</string>
+    <string name="anonymous_statistics_summary">Βοηθήστε το ChameleonOS να γίνει καλύτερο ενεργοποιώντας την αποστολή ανώνυμων στατιστικών στοιχείων</string>
     <string name="anonymous_statistics_warning_title">Σχετικά</string>
-    <string name="anonymous_statistics_warning">Ενεργοποιώντας τα στατιστικά του CyanogenMod επιτρέπετε την αποστολή
-        μη προσωπικών δεδομένων στους προγραμματιστές του CyanogenMod για παρακολούθηση του αριθμού μοναδικών εγκαταστάσεων
+    <string name="anonymous_statistics_warning">Ενεργοποιώντας τα στατιστικά του ChameleonOS επιτρέπετε την αποστολή
+        μη προσωπικών δεδομένων στους προγραμματιστές του ChameleonOS για παρακολούθηση του αριθμού μοναδικών εγκαταστάσεων
         σε όλες τις συσκευές. Οι πληροφορίες που αποστέλλονται συμπεριλαμβάνουν ένα μοναδικό αναγνωριστικό, το οποίο δεν θέτει
         σε κίνδυνο την ασφάλεια σας ή τα προσωπικά δεδομένα. Τα δεδομένα αποστέλλονται σε κάθε εκκίνηση.\n\nΓια ένα παράδειγμα
         των δεδομένων που αποστέλλονται, πατήστε στην Προεπισκόπηση δεδομένων.</string>
@@ -1906,7 +1906,7 @@
     <string name="anonymous_learn_more">Μάθετε περισσότερα</string>
 
     <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">Ενεργοποίηση ή απενεργοποίηση των στατιστικών του CyanogenMod</string>
+    <string name="anonymous_notification_desc">Ενεργοποίηση ή απενεργοποίηση των στατιστικών του ChameleonOS</string>
 
     <!-- Anonymous Statistics - Preview -->
     <string name="preview_id_title">Μοναδικό αναγνωριστικό</string>
@@ -2374,8 +2374,8 @@
     <string name="power_menu_sound_title">Πάνελ έντασης</string>
 
     <!-- CM Updater -->
-    <string name="cmupdate_settings_title">Ενημερώσεις CyanogenMod</string>
-    <string name="cmupdate_settings_summary">Έλεγχος και εγκατάσταση διαθέσιμων ενημερώσεων</string>
+    <string name="cosupdate_settings_title">Ενημερώσεις ChameleonOS</string>
+    <string name="cosupdate_settings_summary">Έλεγχος και εγκατάσταση διαθέσιμων ενημερώσεων</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">Για προχωρημένους</string>

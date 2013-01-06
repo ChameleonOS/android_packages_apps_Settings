@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (C) 2007 The Android Open Source Project
-     Copyright (C) 2012-2013 The CyanogenMod Project
+     Copyright (C) 2012-2013 The ChameleonOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -1882,16 +1882,16 @@
     <string name="start_time_title">Begin</string>
     <string name="end_time_title">Einde</string>
     <string name="device_hostname">Hostnaam apparaat</string>
-    <string name="mod_version">CyanogenMod-versie</string>
+    <string name="mod_version">ChameleonOS-versie</string>
     <string name="mod_version_default">Onbekend</string>
     <string name="build_date">Build-datum</string>
     <string name="build_date_default">2012-01-01-0000</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Geheugen</string>
     <string name="anonymous_statistics_title">Statistieken</string>
-    <string name="anonymous_statistics_summary">Help mee met het verbeteren van CyanogenMod door anonieme statistieke te versturen</string>
+    <string name="anonymous_statistics_summary">Help mee met het verbeteren van ChameleonOS door anonieme statistieke te versturen</string>
     <string name="anonymous_statistics_warning_title">Over</string>
-    <string name="anonymous_statistics_warning">Door de statistieken te verzenden, worden anonieme gegevens naar de ontwikkelaars van CyanogenMod verzonden tijdens het opstarten om unieke installaties te volgen. In de gegevens zit een uniek id-nummer, dat uw privacy niet schendt.\nOm een voorbeeld te zien, raakt u \'Voorbeeld van gegevens\' aan.\nVoor meer informatie raakt u \'Lees meer\' aan.\nHebben wij u niet kunnen overtuigen, dan raakt u \'Annuleren\' aan.</string>
+    <string name="anonymous_statistics_warning">Door de statistieken te verzenden, worden anonieme gegevens naar de ontwikkelaars van ChameleonOS verzonden tijdens het opstarten om unieke installaties te volgen. In de gegevens zit een uniek id-nummer, dat uw privacy niet schendt.\nOm een voorbeeld te zien, raakt u \'Voorbeeld van gegevens\' aan.\nVoor meer informatie raakt u \'Lees meer\' aan.\nHebben wij u niet kunnen overtuigen, dan raakt u \'Annuleren\' aan.</string>
     <string name="enable_reporting_title">Statistieken verzenden</string>
     <string name="preview_data_title">Voorbeeld van gegevens</string>
     <string name="view_stats_title">Statistieken tonen</string>
@@ -2252,8 +2252,8 @@ Let op:\nAangezien het beginvolume hoger is ingesteld dan het beltoonvolume, wor
     <string name="power_menu_airplane_title">Vliegtuigmodus</string>
     <string name="power_menu_user_title">Gebruiker wisselen</string>
     <string name="power_menu_sound_title">Geluidspaneel</string>
-    <string name="cmupdate_settings_title">CyanogenMod-updates</string>
-    <string name="cmupdate_settings_summary">Controleren op updates</string>
+    <string name="cosupdate_settings_title">ChameleonOS-updates</string>
+    <string name="cosupdate_settings_summary">Controleren op updates</string>
     <string name="advanced_settings_title">Geavanceerd</string>
     <string name="ime_switcher_notify">Invoermethodemelding</string>
     <string name="ime_switcher_notify_summary">Melding tonen voor wijzigen invoermethode</string>

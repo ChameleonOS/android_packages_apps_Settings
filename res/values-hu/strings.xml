@@ -1890,7 +1890,7 @@
     <string name="device_hostname">Eszköz elérési neve</string>
 
     <!-- About phone screen,  setting option name-->
-    <string name="mod_version">CyanogenMod verzió</string>
+    <string name="mod_version">ChameleonOS verzió</string>
     <string name="mod_version_default">Ismeretlen</string>
     <!-- About phone screen, build date of ROM -->
     <string name="build_date">Build dátuma</string>
@@ -1903,10 +1903,10 @@
 
     <!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">CyanogenMod Statisztika</string>
-    <string name="anonymous_statistics_summary">Segítsen a CyanogenMod jobbá tételében, kapcsolja be a névtelen statisztikai adatok gyűjtését</string>
+    <string name="anonymous_statistics_title">ChameleonOS Statisztika</string>
+    <string name="anonymous_statistics_summary">Segítsen a ChameleonOS jobbá tételében, kapcsolja be a névtelen statisztikai adatok gyűjtését</string>
     <string name="anonymous_statistics_warning_title">Tudnivalók</string>
-    <string name="anonymous_statistics_warning">A CyanogenMod statisztika engedélyezése nem terjed ki személyes adatokra, csak egy egyedi azonosítóval azonosítjuk az eszközöket. A statisztika minden rendszerindításkor elküldésre kerül, hogy követni tudjuk az új telepítéseket.\n\nAz elküldött adatok menüpont alatt tekintheti meg a statisztikai adatokat.</string>
+    <string name="anonymous_statistics_warning">A ChameleonOS statisztika engedélyezése nem terjed ki személyes adatokra, csak egy egyedi azonosítóval azonosítjuk az eszközöket. A statisztika minden rendszerindításkor elküldésre kerül, hogy követni tudjuk az új telepítéseket.\n\nAz elküldött adatok menüpont alatt tekintheti meg a statisztikai adatokat.</string>
     <string name="enable_reporting_title">Statisztika engedélyezése</string>
     <string name="preview_data_title">Elküldött adatok</string>
     <string name="preview_data_summary">%s</string>
@@ -1914,7 +1914,7 @@
     <string name="anonymous_learn_more">Tudjon meg többet</string>
 
     <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">CyanogenMod Statisztika engedélyezése/tiltása</string>
+    <string name="anonymous_notification_desc">ChameleonOS Statisztika engedélyezése/tiltása</string>
 
     <!-- Anonymous Statistics - Preview -->
     <string name="preview_id_title">Egyedi azonosító</string>
@@ -2381,8 +2381,8 @@
     <string name="power_menu_sound_title">Hang mód</string>
 
     <!-- CM Updater -->
-    <string name="cmupdate_settings_title">CyanogenMod frissítések</string>
-    <string name="cmupdate_settings_summary">Elérhető frissítések keresése, megtekintése, vagy telepítése</string>
+    <string name="cosupdate_settings_title">ChameleonOS frissítések</string>
+    <string name="cosupdate_settings_summary">Elérhető frissítések keresése, megtekintése, vagy telepítése</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">Haladó</string>

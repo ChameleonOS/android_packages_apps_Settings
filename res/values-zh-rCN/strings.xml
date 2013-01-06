@@ -1889,7 +1889,7 @@
     <string name="device_hostname">设备网络名</string>
 
     <!-- About phone screen,  setting option name-->
-    <string name="mod_version">CyanogenMod 版本</string>
+    <string name="mod_version">ChameleonOS 版本</string>
     <string name="mod_version_default">未知</string>
     <!-- About phone screen, build date of ROM -->
     <string name="build_date">编译日期</string>
@@ -1901,17 +1901,17 @@
 
     <!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">CyanogenMod 统计</string>
-    <string name="anonymous_statistics_summary">开启匿名统计报告以便帮助 CyanogenMod 未来向更好的方向发展</string>
+    <string name="anonymous_statistics_title">ChameleonOS 统计</string>
+    <string name="anonymous_statistics_summary">开启匿名统计报告以便帮助 ChameleonOS 未来向更好的方向发展</string>
     <string name="anonymous_statistics_warning_title">关于统计</string>
-    <string name="anonymous_statistics_warning">开启 CyanogenMod 统计将允许非个人数据被提交到 CyanogenMod 的开发者以便记录各种设备上的独特安装. 提交的信息包含一个独特的标识符, 而不会涉及您的隐私与个人数据. 该数据将在每次启动时被提交.\n\n如您想看一个作为被提交数据的实例, 请点击预览数据.</string>
+    <string name="anonymous_statistics_warning">开启 ChameleonOS 统计将允许非个人数据被提交到 ChameleonOS 的开发者以便记录各种设备上的独特安装. 提交的信息包含一个独特的标识符, 而不会涉及您的隐私与个人数据. 该数据将在每次启动时被提交.\n\n如您想看一个作为被提交数据的实例, 请点击预览数据.</string>
     <string name="enable_reporting_title">开启报告</string>
     <string name="preview_data_title">预览数据</string>
     <string name="view_stats_title">查看统计</string>
     <string name="anonymous_learn_more">查看更多</string>
 
     <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">启用或禁用 CyanogenMod 统计</string>
+    <string name="anonymous_notification_desc">启用或禁用 ChameleonOS 统计</string>
 
     <!-- Anonymous Statistics - Preview -->
     <string name="preview_id_title">独特 ID</string>
@@ -2372,8 +2372,8 @@
     <string name="power_menu_sound_title">声控面板</string>
 
     <!-- CM Updater -->
-    <string name="cmupdate_settings_title">CyanogenMod 更新</string>
-    <string name="cmupdate_settings_summary">检查, 查看, 或安装可用的更新</string>
+    <string name="cosupdate_settings_title">ChameleonOS 更新</string>
+    <string name="cosupdate_settings_summary">检查, 查看, 或安装可用的更新</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">高级</string>
