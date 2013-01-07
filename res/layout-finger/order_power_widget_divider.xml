@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    
+    <TextView
+        android:textSize="12dp"
+        android:gravity="center" android:layout_gravity="center_vertical"
+        android:id="@+id/toggle_divider_label"
+        android:background="@drawable/toggle_settings_divider"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_toggle_position_divider_list"
+        android:singleLine="true"
+        android:textColor="?android:attr/textColorSecondary"
+        />
+
+</FrameLayout>

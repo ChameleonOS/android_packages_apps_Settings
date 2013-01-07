@@ -4892,7 +4892,7 @@
     <string name="title_expanded_hide_scrollbar">Hide scrollbar</string>
     <string name="title_widget_picker">Widget buttons</string>
     <string name="summary_widget_picker">View or change the displayed buttons</string>
-    <string name="title_widget_order">Widget button order</string>
+    <string name="title_widget_order">Customize toggles position</string>
     <string name="summary_widget_order">View or change the order of the buttons</string>
     <string name="title_buttons">Buttons</string>
     <string name="title_toggle_wifi">Toggle Wi-Fi</string>
@@ -4930,6 +4930,8 @@
     <string name="cm_sound_mode_soundVibrate">Sound + Vibrate</string>
     <string name="pref_flash_mode_title">Flash mode</string>
     <string name="expanded_haptic_feedback_title">Haptic feedback</string>
+    <string name="settings_toggle_position_divider_list">12 toggles placed above this line are active</string>
+    <string name="toggles_style_title">Toggle layout style</string>
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>

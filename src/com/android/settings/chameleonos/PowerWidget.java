@@ -61,11 +61,13 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
+    private static final String UI_TOGGLES_STYLE = "toggles_style";
 
     private CheckBoxPreference mPowerWidget;
     private CheckBoxPreference mPowerWidgetHideOnChange;
     private CheckBoxPreference mPowerWidgetHideScrollBar;
     private ListPreference mPowerWidgetHapticFeedback;
+    private ListPreference mTogglesStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,7 +78,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
 
-            mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
+            //mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
             mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet
                     .findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
             mPowerWidgetHideScrollBar = (CheckBoxPreference) prefSet
@@ -87,9 +89,14 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             mPowerWidgetHapticFeedback.setOnPreferenceChangeListener(this);
             mPowerWidgetHapticFeedback.setSummary(mPowerWidgetHapticFeedback.getEntry());
 
-            mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext()
-                    .getContentResolver(),
-                    Settings.System.EXPANDED_VIEW_WIDGET, 0) == 1));
+            mTogglesStyle = (ListPreference) prefSet
+                    .findPreference(UI_TOGGLES_STYLE);
+            mTogglesStyle.setOnPreferenceChangeListener(this);
+            mTogglesStyle.setSummary(mTogglesStyle.getEntry());
+
+            //mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext()
+                    //.getContentResolver(),
+                    //Settings.System.EXPANDED_VIEW_WIDGET, 1) == 1));
             mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getActivity()
                     .getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HIDE_ONCHANGE, 0) == 1));
@@ -99,6 +106,9 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             mPowerWidgetHapticFeedback.setValue(Integer.toString(Settings.System.getInt(
                     getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2)));
+            mTogglesStyle.setValue(Integer.toString(Settings.System.getInt(
+                    getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.TOGGLES_TYPE, 0)));
         }
     }
 
@@ -109,6 +119,13 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HAPTIC_FEEDBACK, intValue);
             mPowerWidgetHapticFeedback.setSummary(mPowerWidgetHapticFeedback.getEntries()[index]);
+            return true;
+        } else if (preference == mTogglesStyle) {
+            int intValue = Integer.parseInt((String) newValue);
+            int index = mTogglesStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.TOGGLES_TYPE, intValue);
+            mTogglesStyle.setSummary(mTogglesStyle.getEntries()[index]);
             return true;
         }
         return false;
@@ -474,6 +491,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 ArrayList<String> buttons = PowerWidgetUtil.getButtonListFromString(
                         PowerWidgetUtil.getCurrentButtons(mContext));
 
+                // componsate for the divider at position 12
+                if (from >= 12)
+                    from--;
+                if (to >= 12)
+                    to--;
+
                 // move the button
                 if (from < buttons.size()) {
                     String button = buttons.remove(from);
@@ -529,11 +552,14 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             }
 
             public int getCount() {
-                return mButtons.size();
+                return mButtons.size() + 1;
             }
 
             public Object getItem(int position) {
-                return mButtons.get(position);
+                if (position < 12)
+                    return mButtons.get(position);
+                else
+                    return mButtons.get(position-1);
             }
 
             public long getItemId(int position) {
@@ -542,13 +568,17 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             public View getView(int position, View convertView, ViewGroup parent) {
                 final View v;
-                if (convertView == null) {
-                    v = mInflater.inflate(R.layout.order_power_widget_button_list_item, null);
-                } else {
-                    v = convertView;
-                }
+//                if (convertView == null || position == 12) {
+                    if (position != 12)
+                        v = mInflater.inflate(R.layout.order_power_widget_button_list_item, null);
+                    else
+                        return mInflater.inflate(R.layout.order_power_widget_divider, null);
+//                } else {
+//                    v = convertView;
+//                }
 
-                PowerWidgetUtil.ButtonInfo button = mButtons.get(position);
+                int pos = position <= 12 ? position : position - 1;
+                PowerWidgetUtil.ButtonInfo button = mButtons.get(pos);
 
                 final TextView name = (TextView) v.findViewById(R.id.name);
                 final ImageView icon = (ImageView) v.findViewById(R.id.icon);
