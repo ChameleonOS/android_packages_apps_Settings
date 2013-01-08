@@ -58,12 +58,14 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private static final String TAG = "PowerWidget";
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String UI_EXP_WIDGET = "expanded_widget";
+    private static final String UI_EXP_WIDGET_HIDE_ONCOLLAPSE = "expanded_hide_oncollapse";
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
     private static final String UI_TOGGLES_STYLE = "toggles_style";
 
     private CheckBoxPreference mPowerWidget;
+    private CheckBoxPreference mPowerWidgetHideOnCollapse;
     private CheckBoxPreference mPowerWidgetHideOnChange;
     private CheckBoxPreference mPowerWidgetHideScrollBar;
     private ListPreference mPowerWidgetHapticFeedback;
@@ -79,8 +81,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             PreferenceScreen prefSet = getPreferenceScreen();
 
             //mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
+            mPowerWidgetHideOnCollapse = (CheckBoxPreference) prefSet
+                    .findPreference(UI_EXP_WIDGET_HIDE_ONCOLLAPSE);
+
             mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet
                     .findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
+
             mPowerWidgetHideScrollBar = (CheckBoxPreference) prefSet
                     .findPreference(UI_EXP_WIDGET_HIDE_SCROLLBAR);
 
@@ -97,6 +103,9 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             //mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext()
                     //.getContentResolver(),
                     //Settings.System.EXPANDED_VIEW_WIDGET, 1) == 1));
+            mPowerWidgetHideOnCollapse.setChecked((Settings.System.getInt(getActivity()
+                    .getApplicationContext().getContentResolver(),
+                    Settings.System.COLLAPSE_VOLUME_PANEL, 0) == 1));
             mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getActivity()
                     .getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HIDE_ONCHANGE, 0) == 1));
@@ -138,6 +147,11 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             value = mPowerWidget.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_VIEW_WIDGET,
+                    value ? 1 : 0);
+        } else if (preference == mPowerWidgetHideOnCollapse) {
+            value = mPowerWidgetHideOnCollapse.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.COLLAPSE_VOLUME_PANEL,
                     value ? 1 : 0);
         } else if (preference == mPowerWidgetHideOnChange) {
             value = mPowerWidgetHideOnChange.isChecked();

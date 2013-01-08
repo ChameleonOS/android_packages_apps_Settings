@@ -4887,6 +4887,8 @@
     <string name="power_widget_title">Power widget</string>
     <string name="title_expanded_widget">Power widget</string>
     <string name="power_widget_behavior">Widget behavior</string>
+    <string name="title_expanded_hide_oncollapse">Collapse volumes</string>
+    <string name="summary_expanded_hide_oncollapse">Collapse the volume panel when notifcation panel is closed</string>
     <string name="title_expanded_hide_onchange">Close drawer on change</string>
     <string name="title_expanded_hide_indicator">Hide indicators</string>
     <string name="title_expanded_hide_scrollbar">Hide scrollbar</string>
