@@ -4508,8 +4508,8 @@
     <string name="system_settings_title">System</string>
     <string name="system_interface_title">System interface</string>
 
-    <!-- Notification Drawer  -->
-    <string name="notification_drawer_title">Notification drawer</string>
+    <!-- Status bar toggles  -->
+    <string name="notification_drawer_title">Status bar toggles</string>
 
     <string name="lock_screen_title">Lock screen</string>
 
@@ -4884,9 +4884,9 @@
     <string name="hardware_keys_action_in_app_search">In-app search</string>
 
     <!-- Power Widget  -->
-    <string name="power_widget_title">Power widget</string>
-    <string name="title_expanded_widget">Power widget</string>
-    <string name="power_widget_behavior">Widget behavior</string>
+    <string name="power_widget_title">Status bar toggles</string>
+    <string name="title_expanded_widget">Status bar toggles</string>
+    <string name="power_widget_behavior">Behavior</string>
     <string name="title_expanded_hide_oncollapse">Collapse volumes</string>
     <string name="summary_expanded_hide_oncollapse">Collapse the volume panel when notifcation panel is closed</string>
     <string name="title_expanded_hide_onchange">Close drawer on change</string>
