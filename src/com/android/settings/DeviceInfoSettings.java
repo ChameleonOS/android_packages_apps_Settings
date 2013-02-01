@@ -113,9 +113,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
 
         // Only the owner should see the Updater settings, if it exists
         if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
-            //removePreferenceIfPackageNotInstalled(findPreference(KEY_COS_UPDATES));
-            // remove for the time being since we are not CM
-            getPreferenceScreen().removePreference(findPreference(KEY_COS_UPDATES));
+            removePreferenceIfPackageNotInstalled(findPreference(KEY_COS_UPDATES));
         } else {
             getPreferenceScreen().removePreference(findPreference(KEY_COS_UPDATES));
         }
