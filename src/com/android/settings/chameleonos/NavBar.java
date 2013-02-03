@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanogenmod;
+package com.android.settings.chameleonos;
 
 import android.app.Activity;
 import android.app.AlertDialog;
