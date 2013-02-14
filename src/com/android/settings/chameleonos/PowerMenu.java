@@ -146,4 +146,22 @@ public class PowerMenu extends SettingsPreferenceFragment {
         return true;
     }
 
+    private void updateExpandedDesktopSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Expanded desktop deactivated
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 0);
+            mExpandedDesktopPref.setSummary(res.getString(R.string.expanded_desktop_disabled));
+        } else if (value == 1) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 1);
+            mExpandedDesktopPref.setSummary(res.getString(R.string.expanded_desktop_status_bar));
+        } else if (value == 2) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 1);
+            mExpandedDesktopPref.setSummary(res.getString(R.string.expanded_desktop_no_status_bar));
+        }
+    }
 }
