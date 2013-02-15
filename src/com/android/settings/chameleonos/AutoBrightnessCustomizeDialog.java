@@ -1,4 +1,4 @@
-package com.android.settings.cyanogenmod;
+package com.android.settings.chameleonos;
 
 import android.app.AlertDialog;
 import android.content.Context;
