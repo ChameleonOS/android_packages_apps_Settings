@@ -40,13 +40,13 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
-        <!-- CyanogenMod Updates -->
+        <!-- ChameleonOS Updates -->
         <PreferenceScreen android:key="cos_updates"
                 android:title="@string/cosupdate_settings_title" 
                 android:summary="@string/cosupdate_settings_summary">
             <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.cyanogenmod.updater"
-                    android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
+                    android:targetPackage="org.chameleonos.updater"
+                    android:targetClass="org.chameleonos.updater.UpdatesSettings" />
         </PreferenceScreen>
 
         <!-- Anonymous statistics - (CMStats) -->
