@@ -51,7 +51,7 @@
 
     <PreferenceScreen
         android:key="navigation_bar"
-        android:fragment="com.android.settings.cyanogenmod.NavBar"
+        android:fragment="com.android.settings.chameleonos.NavBar"
         android:title="@string/navigation_bar_title" />
 
     <PreferenceScreen

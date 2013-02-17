@@ -40,7 +40,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 
-import com.android.settings.cyanogenmod.AutoBrightnessCustomizeDialog;
+import com.android.settings.chameleonos.AutoBrightnessCustomizeDialog;
 
 public class BrightnessPreference extends SeekBarDialogPreference implements
         SeekBar.OnSeekBarChangeListener, CheckBox.OnCheckedChangeListener {
