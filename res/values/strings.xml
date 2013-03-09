@@ -5146,4 +5146,7 @@
     <string name="auto_brightness_menu_edit_lux">Ambient brightness range</string>
     <string name="auto_brightness_menu_split">Split</string>
     <string name="auto_brightness_menu_remove">Remove</string>
+
+    <!-- Permissions Management -->
+    <string name="permissions_settings_title">Permissions Management</string>
 </resources>
