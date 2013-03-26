@@ -5149,4 +5149,10 @@
 
     <!-- Permissions Management -->
     <string name="permissions_settings_title">Permissions Management</string>
+
+    <!-- Share ChameleonOS -->
+    <string name="share_chameleonos_title">Share ChameleonOS</string>
+    <string name="share_chameleonos_summary">Let others know about ChameleonOS</string>
+    <string name="share_message">I\'m running ChameleonOS on my %s! \nhttp://www.chameleonos.org #GetChameleonOS @ChaOS_ROM</string>
+    <string name="share_chooser_title">Share the ChaOS!</string>
 </resources>

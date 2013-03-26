@@ -57,6 +57,11 @@
             android:fragment="com.android.settings.cosstats.AnonymousStats" >
         </PreferenceScreen>
 
+        <Preference
+            android:key="share"
+            android:title="@string/share_chameleonos_title"
+            android:summary="@string/share_chameleonos_summary" />
+
         <!-- Change Log -->
         <PreferenceScreen android:key="changelog"
             android:title="@string/changelog_title"
