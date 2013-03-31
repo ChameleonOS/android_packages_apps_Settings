@@ -62,7 +62,7 @@ public class AnonymousStats extends SettingsPreferenceFragment
         if (getPreferenceManager() != null) {
             addPreferencesFromResource(R.xml.anonymous_stats);
             PreferenceScreen prefSet = getPreferenceScreen();
-            mPrefs = getActivity().getSharedPreferences("CMStats", 0);
+            mPrefs = getActivity().getSharedPreferences("ChaOSStats", 0);
             mEnableReporting = (CheckBoxPreference) prefSet.findPreference(ANONYMOUS_OPT_IN);
             mViewStats = (Preference) prefSet.findPreference(VIEW_STATS);
             boolean firstBoot = mPrefs.getBoolean(ANONYMOUS_FIRST_BOOT, true);

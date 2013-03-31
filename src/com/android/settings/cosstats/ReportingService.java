@@ -40,7 +40,7 @@ import com.android.settings.R;
 import com.android.settings.Settings;
 
 public class ReportingService extends Service {
-    protected static final String TAG = "CMStats";
+    protected static final String TAG = "ChaOSStats";
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -92,7 +92,7 @@ public class ReportingService extends Service {
             kv.add(new BasicNameValuePair("device_carrier_id", deviceCarrierId));
             httppost.setEntity(new UrlEncodedFormEntity(kv));
             httpclient.execute(httppost);
-            getSharedPreferences("CMStats", 0).edit().putLong(AnonymousStats.ANONYMOUS_LAST_CHECKED,
+            getSharedPreferences("ChaOSStats", 0).edit().putLong(AnonymousStats.ANONYMOUS_LAST_CHECKED,
                     System.currentTimeMillis()).apply();
         } catch (Exception e) {
             Log.e(TAG, "Got Exception", e);
