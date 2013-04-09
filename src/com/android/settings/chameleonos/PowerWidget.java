@@ -505,10 +505,10 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 ArrayList<String> buttons = PowerWidgetUtil.getButtonListFromString(
                         PowerWidgetUtil.getCurrentButtons(mContext));
 
-                // componsate for the divider at position 12
-                if (from >= 12)
+                // compensate for the divider
+                if (from > 12)
                     from--;
-                if (to >= 12)
+                if (to > 12)
                     to--;
 
                 // move the button
