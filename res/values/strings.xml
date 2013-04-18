@@ -4961,6 +4961,11 @@
     <string name="power_menu_user_title">User switcher</string>
     <string name="power_menu_sound_title">Sound panel</string>
 
+    <!-- App sidebar -->
+    <string name="app_sidebar_title">App sidebar</string>
+    <string name="app_sidebar_enable_title">Enable sidebar</string>
+    <string name="app_sidebar_sort_type_title">Sidebar sort order</string>
+
     <!-- CM Updater -->
     <string name="cosupdate_settings_title">ChameleonOS updates</string>
     <string name="cosupdate_settings_summary">Check for, view or install available updates</string>
