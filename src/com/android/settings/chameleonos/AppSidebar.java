@@ -35,13 +35,11 @@ public class AppSidebar extends SettingsPreferenceFragment implements
 
     private static final String KEY_ENABLED = "sidebar_enable";
     private static final String KEY_SORT_TYPE = "sidebar_sort_type";
+    private static final String KEY_TRANSPARENCY = "sidebar_transparency";
 
     private CheckBoxPreference mEnabledPref;
-    ListPreference mSortTypePref;
-    private CheckBoxPreference mProfilesPref;
-    private CheckBoxPreference mAirplanePref;
-    private CheckBoxPreference mUserPref;
-    private CheckBoxPreference mSoundPref;
+    private ListPreference mSortTypePref;
+    private SeekBarDialogPreference mTransparencyPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,6 +57,11 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         int sortyTypeValue = Settings.System.getInt(getContentResolver(), Settings.System.APP_SIDEBAR_SORT_TYPE, 0);
         mSortTypePref.setValue(String.valueOf(sortyTypeValue));
         updateSortTypeSummary(sortyTypeValue);
+
+        mTransparencyPref = (SeekBarDialogPreference) findPreference(KEY_TRANSPARENCY);
+        mTransparencyPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.APP_SIDEBAR_TRANSPARENCY, 0));
+        mTransparencyPref.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -67,6 +70,11 @@ public class AppSidebar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.APP_SIDEBAR_SORT_TYPE, sortyTypeValue);
             updateSortTypeSummary(sortyTypeValue);
+            return true;
+        } else if (preference == mTransparencyPref) {
+            int transparency = ((Integer)newValue).intValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.APP_SIDEBAR_TRANSPARENCY, transparency);
             return true;
         }
         return false;

@@ -16,8 +16,8 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/app_sidebar_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/app_sidebar_title" >
 
     <CheckBoxPreference
         android:key="sidebar_enable"
@@ -32,4 +32,10 @@
         android:persistent="false"
         android:dependency="sidebar_enable" />
 
+    <com.android.settings.chameleonos.SeekBarDialogPreference
+        android:key="sidebar_transparency"
+        android:title="@string/app_sidebar_transparency_title"
+        settings:min="0"
+        settings:max="50"
+        android:defaultValue="0" />
 </PreferenceScreen>
