@@ -1262,6 +1262,18 @@
         <item>1</item>
     </string-array>
 
+    <string-array name="app_sidebar_size_entries">
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Large</item>
+    </string-array>
+
+    <string-array name="app_sidebar_size_values">
+        <item>67</item>
+        <item>100</item>
+        <item>133</item>
+    </string-array>
+
     <!-- Quick pulldown -->
     <string-array name="quick_pulldown_entries" translatable="false">
         <item>@string/quick_pulldown_off</item>

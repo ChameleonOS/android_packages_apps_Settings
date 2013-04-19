@@ -4966,6 +4966,7 @@
     <string name="app_sidebar_enable_title">Enable sidebar</string>
     <string name="app_sidebar_sort_type_title">Sidebar sort order</string>
     <string name="app_sidebar_transparency_title">Sidebar transparency</string>
+    <string name="app_sidebar_size_title">Sidebar size</string>
 
     <!-- CM Updater -->
     <string name="cosupdate_settings_title">ChameleonOS updates</string>

@@ -36,9 +36,11 @@ public class AppSidebar extends SettingsPreferenceFragment implements
     private static final String KEY_ENABLED = "sidebar_enable";
     private static final String KEY_SORT_TYPE = "sidebar_sort_type";
     private static final String KEY_TRANSPARENCY = "sidebar_transparency";
+    private static final String KEY_SIZE = "sidebar_size";
 
     private CheckBoxPreference mEnabledPref;
     private ListPreference mSortTypePref;
+    private ListPreference mSizePref;
     private SeekBarDialogPreference mTransparencyPref;
 
     @Override
@@ -58,6 +60,12 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         mSortTypePref.setValue(String.valueOf(sortyTypeValue));
         updateSortTypeSummary(sortyTypeValue);
 
+        mSizePref = (ListPreference) prefSet.findPreference(KEY_SIZE);
+        mSizePref.setOnPreferenceChangeListener(this);
+        int size = Settings.System.getInt(getContentResolver(), Settings.System.APP_SIDEBAR_ITEM_SIZE, 100);
+        mSizePref.setValue(String.valueOf(size));
+        updateSizeSummary(size);
+
         mTransparencyPref = (SeekBarDialogPreference) findPreference(KEY_TRANSPARENCY);
         mTransparencyPref.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.APP_SIDEBAR_TRANSPARENCY, 0));
@@ -75,6 +83,12 @@ public class AppSidebar extends SettingsPreferenceFragment implements
             int transparency = ((Integer)newValue).intValue();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.APP_SIDEBAR_TRANSPARENCY, transparency);
+            return true;
+        } else if (preference == mSizePref) {
+            int size = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.APP_SIDEBAR_ITEM_SIZE, size);
+            updateSizeSummary(size);
             return true;
         }
         return false;
@@ -100,5 +114,11 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         mSortTypePref.setSummary(mSortTypePref.getEntries()[mSortTypePref.findIndexOfValue("" + value)]);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.APP_SIDEBAR_SORT_TYPE, value);
+    }
+
+    private void updateSizeSummary(int value) {
+        mSizePref.setSummary(mSizePref.getEntries()[mSizePref.findIndexOfValue("" + value)]);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.APP_SIDEBAR_ITEM_SIZE, value);
     }
 }
