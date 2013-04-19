@@ -16,6 +16,7 @@
 
 package com.android.settings.chameleonos;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -30,18 +31,20 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class AppSidebar extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
     private static final String TAG = "PowerMenu";
 
     private static final String KEY_ENABLED = "sidebar_enable";
     private static final String KEY_SORT_TYPE = "sidebar_sort_type";
     private static final String KEY_TRANSPARENCY = "sidebar_transparency";
     private static final String KEY_SIZE = "sidebar_size";
+    private static final String KEY_EXCLUDED = "sidebar_exclude_list";
 
     private CheckBoxPreference mEnabledPref;
     private ListPreference mSortTypePref;
     private ListPreference mSizePref;
     private SeekBarDialogPreference mTransparencyPref;
+    private Preference mExcludedApps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,8 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         mTransparencyPref.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.APP_SIDEBAR_TRANSPARENCY, 0));
         mTransparencyPref.setOnPreferenceChangeListener(this);
+
+        findPreference(KEY_EXCLUDED).setOnPreferenceClickListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -120,5 +125,15 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         mSizePref.setSummary(mSizePref.getEntries()[mSizePref.findIndexOfValue("" + value)]);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.APP_SIDEBAR_ITEM_SIZE, value);
+    }
+
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if(preference.getKey().equals(KEY_EXCLUDED)) {
+            Intent intent = new Intent(getActivity(), ExcludedAppsActivity.class);
+            getActivity().startActivity(intent);
+            return true;
+        }
+        return false;
     }
 }

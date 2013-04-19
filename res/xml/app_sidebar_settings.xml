@@ -47,4 +47,11 @@
         settings:max="50"
         android:defaultValue="0"
         android:dependency="sidebar_enable" />
+
+    <Preference
+        android:key="sidebar_exclude_list"
+        android:title="@string/app_sidebar_exclude_list_title"
+        android:summary="@string/app_sidebar_exclude_list_summary"
+        android:persistent="false"
+        android:dependency="sidebar_enable" />
 </PreferenceScreen>
