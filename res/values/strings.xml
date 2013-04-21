@@ -5169,6 +5169,11 @@
     <string name="share_message">I\'m running ChameleonOS on my %s! \nhttp://www.chameleonos.org #GetChameleonOS @ChaOS_ROM</string>
     <string name="share_chooser_title">Share the ChaOS!</string>
 
+    <!-- Donate to ChameleonOS -->
+    <string name="donate_chameleonos_title">Support ChameleonOS</string>
+    <string name="donate_chameleonos_summary">Show your support for ChameleonOS by donating.</string>
+    <string name="donate_link" formatted="false">https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=5JTBT7VHVUDE4&amp;lc=US&amp;item_name=ChameleonOS&amp;item_number=donation&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted</string>
+
     <!-- Navigation bar buttons and shortcuts category title -->
     <string name="navigation_bar_category">Navigation bar</string>
 
