@@ -19,39 +19,69 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/app_sidebar_title" >
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="sidebar_enable"
         android:title="@string/app_sidebar_enable_title"
+        android:summaryOn="@string/app_sidebar_enable_summaryOn"
+        android:summaryOff="@string/app_sidebar_enable_summaryOff"
         android:defaultValue="false" />
 
-    <ListPreference
-        android:key="sidebar_sort_type"
-        android:title="@string/app_sidebar_sort_type_title"
-        android:entries="@array/app_sidebar_sort_type_entries"
-        android:entryValues="@array/app_sidebar_sort_type_values"
-        android:persistent="false"
+    <Preference
+        android:key="sidebar_setup_items"
+        android:title="@string/app_sidebar_setup_items_title"
+        android:summary="@string/app_sidebar_setup_items_summary"
         android:dependency="sidebar_enable" />
 
     <ListPreference
-        android:key="sidebar_size"
-        android:title="@string/app_sidebar_size_title"
-        android:entries="@array/app_sidebar_size_entries"
-        android:entryValues="@array/app_sidebar_size_values"
-        android:persistent="false"
+        android:key="sidebar_position"
+        android:title="@string/app_sidebar_position_title"
+        android:summary="@string/app_sidebar_position_summary"
+        android:entries="@array/app_sidebar_position_entries"
+        android:entryValues="@array/app_sidebar_position_values"
+        android:defaultValue="0"
+        android:dependency="sidebar_enable" />
+
+    <CheckBoxPreference
+        android:key="sidebar_hide_labels"
+        android:title="@string/app_sidebar_hide_labels_title"
+        android:summary="@string/app_sidebar_hide_labels_summary"
+        android:defaultValue="false"
         android:dependency="sidebar_enable" />
 
     <com.android.settings.chameleonos.SeekBarDialogPreference
         android:key="sidebar_transparency"
         android:title="@string/app_sidebar_transparency_title"
+        android:summary="@string/app_sidebar_transparency_summary"
         settings:min="0"
         settings:max="50"
         android:defaultValue="0"
         android:dependency="sidebar_enable" />
 
-    <Preference
-        android:key="sidebar_exclude_list"
-        android:title="@string/app_sidebar_exclude_list_title"
-        android:summary="@string/app_sidebar_exclude_list_summary"
-        android:persistent="false"
-        android:dependency="sidebar_enable" />
+    <PreferenceCategory
+        android:title="@string/tab_category" />
+
+    <CheckBoxPreference
+        android:key="use_tab"
+        android:title="@string/use_tab_title"
+        android:summary="@string/use_tab_summary"
+        android:defaultValue="false" />
+
+    <ListPreference
+        android:key="tab_position"
+        android:title="@string/tab_position_title"
+        android:summary="@string/tab_position_summary"
+        android:entries="@array/tab_position_entries"
+        android:entryValues="@array/tab_position_entryValues"
+        android:defaultValue="0"
+        android:dependency="use_tab" />
+
+    <ListPreference
+        android:key="tab_size"
+        android:title="@string/tab_size_title"
+        android:summary="@string/tab_size_summary"
+        android:entries="@array/tab_size_entries"
+        android:entryValues="@array/tab_size_entryValues"
+        android:defaultValue="1.5"
+        android:dependency="use_tab" />
+
 </PreferenceScreen>
