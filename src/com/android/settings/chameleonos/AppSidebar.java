@@ -62,6 +62,7 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         mEnabledPref = (SwitchPreference) findPreference(KEY_ENABLED);
         mEnabledPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.APP_SIDEBAR_ENABLED, 0) == 1));
+        mEnabledPref.setOnPreferenceChangeListener(this);
 
         mHideLabelsPref = (CheckBoxPreference) findPreference(KEY_HIDE_LABELS);
         mHideLabelsPref.setChecked((Settings.System.getInt(getContentResolver(),
@@ -116,6 +117,12 @@ public class AppSidebar extends SettingsPreferenceFragment implements
             float size = Float.valueOf((String) newValue);
             updateTabSizeSummary(size);
             return true;
+        } else if (preference == mEnabledPref) {
+            boolean value = ((Boolean)newValue).booleanValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.APP_SIDEBAR_ENABLED,
+                    value ? 1 : 0);
+            return true;
         }
         return false;
     }
@@ -124,12 +131,7 @@ public class AppSidebar extends SettingsPreferenceFragment implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-        if (preference == mEnabledPref) {
-            value = mEnabledPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.APP_SIDEBAR_ENABLED,
-                    value ? 1 : 0);
-        } else if (preference == mHideLabelsPref) {
+        if (preference == mHideLabelsPref) {
             value = mHideLabelsPref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.APP_SIDEBAR_DISABLE_LABELS,
