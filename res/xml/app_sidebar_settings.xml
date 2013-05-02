@@ -48,40 +48,51 @@
         android:defaultValue="false"
         android:dependency="sidebar_enable" />
 
-    <com.android.settings.chameleonos.SeekBarDialogPreference
+    <com.android.settings.chameleonos.SeekBarPreference
         android:key="sidebar_transparency"
         android:title="@string/app_sidebar_transparency_title"
         android:summary="@string/app_sidebar_transparency_summary"
+        android:max="50"
         settings:min="0"
-        settings:max="50"
+        settings:unitsLeft=""
+        settings:unitsRight="%"
         android:defaultValue="0"
         android:dependency="sidebar_enable" />
 
     <PreferenceCategory
-        android:title="@string/tab_category" />
+        android:title="@string/trigger_category" />
 
-    <CheckBoxPreference
-        android:key="use_tab"
-        android:title="@string/use_tab_title"
-        android:summary="@string/use_tab_summary"
-        android:defaultValue="false" />
+    <com.android.settings.chameleonos.SeekBarPreference
+        android:key="trigger_width"
+        android:title="@string/trigger_width_title"
+        android:summary="@string/trigger_width_summary"
+        android:defaultValue="4"
+        android:max="64"
+        settings:min="4"
+        settings:unitsLeft=""
+        settings:unitsRight="px"
+        android:dependency="sidebar_enable" />
 
-    <ListPreference
-        android:key="tab_position"
-        android:title="@string/tab_position_title"
-        android:summary="@string/tab_position_summary"
-        android:entries="@array/tab_position_entries"
-        android:entryValues="@array/tab_position_entryValues"
+    <com.android.settings.chameleonos.SeekBarPreference
+        android:key="trigger_top"
+        android:title="@string/trigger_top_title"
+        android:summary="@string/trigger_top_summary"
         android:defaultValue="0"
-        android:dependency="use_tab" />
+        android:max="99"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="%"
+        android:dependency="sidebar_enable" />
 
-    <ListPreference
-        android:key="tab_size"
-        android:title="@string/tab_size_title"
-        android:summary="@string/tab_size_summary"
-        android:entries="@array/tab_size_entries"
-        android:entryValues="@array/tab_size_entryValues"
-        android:defaultValue="1.5"
-        android:dependency="use_tab" />
+    <com.android.settings.chameleonos.SeekBarPreference
+        android:key="trigger_bottom"
+        android:title="@string/trigger_bottom_title"
+        android:summary="@string/trigger_bottom_summary"
+        android:defaultValue="100"
+        android:max="100"
+        settings:min="1"
+        settings:unitsLeft=""
+        settings:unitsRight="%"
+        android:dependency="sidebar_enable" />
 
 </PreferenceScreen>

@@ -18,10 +18,7 @@ package com.android.settings.chameleonos;
 
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.UserHandle;
-import android.os.UserManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -41,17 +38,17 @@ public class AppSidebar extends SettingsPreferenceFragment implements
     private static final String KEY_SETUP_ITEMS = "sidebar_setup_items";
     private static final String KEY_POSITION = "sidebar_position";
     private static final String KEY_HIDE_LABELS = "sidebar_hide_labels";
-    private static final String KEY_USE_TAB = "use_tab";
-    private static final String KEY_TAB_POSITION = "tab_position";
-    private static final String KEY_TAB_SIZE = "tab_size";
+    private static final String KEY_TRIGGER_WIDTH = "trigger_width";
+    private static final String KEY_TRIGGER_TOP = "trigger_top";
+    private static final String KEY_TRIGGER_BOTTOM = "trigger_bottom";
 
     private SwitchPreference mEnabledPref;
-    private SeekBarDialogPreference mTransparencyPref;
+    private SeekBarPreference mTransparencyPref;
     private ListPreference mPositionPref;
     private CheckBoxPreference mHideLabelsPref;
-    private CheckBoxPreference mUseTabPref;
-    private ListPreference mTabPositionPref;
-    private ListPreference mTabSizePref;
+    private SeekBarPreference mTriggerWidthPref;
+    private SeekBarPreference mTriggerTopPref;
+    private SeekBarPreference mTriggerBottomPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,10 +65,6 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         mHideLabelsPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.APP_SIDEBAR_DISABLE_LABELS, 0) == 1));
 
-        mUseTabPref = (CheckBoxPreference) findPreference(KEY_USE_TAB);
-        mUseTabPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.APP_SIDEBAR_USE_TAB, 0) == 1));
-
         PreferenceScreen prefSet = getPreferenceScreen();
         mPositionPref = (ListPreference) prefSet.findPreference(KEY_POSITION);
         mPositionPref.setOnPreferenceChangeListener(this);
@@ -79,22 +72,25 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         mPositionPref.setValue(String.valueOf(position));
         updatePositionSummary(position);
 
-        mTabPositionPref = (ListPreference) prefSet.findPreference(KEY_TAB_POSITION);
-        mTabPositionPref.setOnPreferenceChangeListener(this);
-        position = Settings.System.getInt(getContentResolver(), Settings.System.APP_SIDEBAR_TAB_POSITION, 0);
-        mTabPositionPref.setValue(String.valueOf(position));
-        updateTabPositionSummary(position);
-
-        mTabSizePref = (ListPreference) prefSet.findPreference(KEY_TAB_SIZE);
-        mTabSizePref.setOnPreferenceChangeListener(this);
-        float size = Settings.System.getFloat(getContentResolver(), Settings.System.APP_SIDEBAR_TAB_SCALE, 1.5f);
-        mTabSizePref.setValue(String.valueOf(size));
-        updateTabSizeSummary(size);
-
-        mTransparencyPref = (SeekBarDialogPreference) findPreference(KEY_TRANSPARENCY);
+        mTransparencyPref = (SeekBarPreference) findPreference(KEY_TRANSPARENCY);
         mTransparencyPref.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.APP_SIDEBAR_TRANSPARENCY, 0));
         mTransparencyPref.setOnPreferenceChangeListener(this);
+
+        mTriggerWidthPref = (SeekBarPreference) findPreference(KEY_TRIGGER_WIDTH);
+        mTriggerWidthPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.APP_SIDEBAR_TRIGGER_WIDTH, 10));
+        mTriggerWidthPref.setOnPreferenceChangeListener(this);
+
+        mTriggerTopPref = (SeekBarPreference) findPreference(KEY_TRIGGER_TOP);
+        mTriggerTopPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.APP_SIDEBAR_TRIGGER_TOP, 0));
+        mTriggerTopPref.setOnPreferenceChangeListener(this);
+
+        mTriggerBottomPref = (SeekBarPreference) findPreference(KEY_TRIGGER_BOTTOM);
+        mTriggerBottomPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.APP_SIDEBAR_TRIGGER_HEIGHT, 100));
+        mTriggerBottomPref.setOnPreferenceChangeListener(this);
 
         findPreference(KEY_SETUP_ITEMS).setOnPreferenceClickListener(this);
     }
@@ -105,17 +101,24 @@ public class AppSidebar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.APP_SIDEBAR_TRANSPARENCY, transparency);
             return true;
+        } else if (preference == mTriggerWidthPref) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.APP_SIDEBAR_TRIGGER_WIDTH, width);
+            return true;
+        } else if (preference == mTriggerTopPref) {
+            int top = ((Integer)newValue).intValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.APP_SIDEBAR_TRIGGER_TOP, top);
+            return true;
+        } else if (preference == mTriggerBottomPref) {
+            int bottom = ((Integer)newValue).intValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.APP_SIDEBAR_TRIGGER_HEIGHT, bottom);
+            return true;
         } else if (preference == mPositionPref) {
             int position = Integer.valueOf((String) newValue);
             updatePositionSummary(position);
-            return true;
-        } else if (preference == mTabPositionPref) {
-            int position = Integer.valueOf((String) newValue);
-            updateTabPositionSummary(position);
-            return true;
-        } else if (preference == mTabSizePref) {
-            float size = Float.valueOf((String) newValue);
-            updateTabSizeSummary(size);
             return true;
         } else if (preference == mEnabledPref) {
             boolean value = ((Boolean)newValue).booleanValue();
@@ -135,11 +138,6 @@ public class AppSidebar extends SettingsPreferenceFragment implements
             value = mHideLabelsPref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.APP_SIDEBAR_DISABLE_LABELS,
-                    value ? 1 : 0);
-        } else if (preference == mUseTabPref) {
-            value = mUseTabPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.APP_SIDEBAR_USE_TAB,
                     value ? 1 : 0);
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -167,15 +165,17 @@ public class AppSidebar extends SettingsPreferenceFragment implements
                 Settings.System.APP_SIDEBAR_POSITION, value);
     }
 
-    private void updateTabPositionSummary(int value) {
-        mTabPositionPref.setSummary(mTabPositionPref.getEntries()[mTabPositionPref.findIndexOfValue("" + value)]);
+    @Override
+    public void onPause() {
+        super.onPause();
         Settings.System.putInt(getContentResolver(),
-                Settings.System.APP_SIDEBAR_TAB_POSITION, value);
+                Settings.System.APP_SIDEBAR_SHOW_TRIGGER, 0);
     }
 
-    private void updateTabSizeSummary(float value) {
-        mTabSizePref.setSummary(mTabSizePref.getEntries()[mTabSizePref.findIndexOfValue("" + value)]);
-        Settings.System.putFloat(getContentResolver(),
-                Settings.System.APP_SIDEBAR_TAB_SCALE, value);
+    @Override
+    public void onResume() {
+        super.onResume();    //To change body of overridden methods use File | Settings | File Templates.
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.APP_SIDEBAR_SHOW_TRIGGER, 1);
     }
 }
