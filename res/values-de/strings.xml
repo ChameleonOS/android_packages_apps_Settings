@@ -1921,8 +1921,8 @@
     <string name="system_settings_title">System</string>
     <string name="system_interface_title">Systemoberfläche</string>
 
-    <!-- Notification Drawer -->
-    <string name="notification_drawer_title">Benachrichtigungsanzeige</string>
+    <!-- Status bar toggles -->
+    <string name="notification_drawer_title">Schalterleiste</string>
 
     <!-- Lock Screen title -->
     <string name="lock_screen_title">Bildschirmsperre</string>
@@ -2059,6 +2059,7 @@
     <string name="toggleFlashlight">Taschenlampe</string>
     <string name="toggleLockScreen">Bildschirmsperre</string>
     <string name="toggleWimax">WiMAX</string>
+
 
     <!-- Screen security -->
     <string name="screen_security_category">Bildschirmsicherheit</string>
@@ -2302,15 +2303,17 @@
     <string name="hardware_keys_action_in_app_search">In-App Suche</string>
 
     <!-- Power Widget  -->
-    <string name="power_widget_title">Energie-Widget</string>
-    <string name="title_expanded_widget">Energiesteuerung</string>
-    <string name="power_widget_behavior">Widget-Verhalten</string>
+    <string name="power_widget_title">Schalterleiste</string>
+    <string name="title_expanded_widget">Schalterleiste</string>
+    <string name="power_widget_behavior">Verhalten</string>
+    <string name="title_expanded_hide_oncollapse">Verberge Lautstärkenanzeige</string>
+    <string name="summary_expanded_hide_oncollapse">Verberge Lautstärkenanzeige sobalt die Schalterleiste geschlossen wird</string>
     <string name="title_expanded_hide_onchange">Nach Änd. verbergen</string>
     <string name="title_expanded_hide_indicator">Indikator verbergen</string>
     <string name="title_expanded_hide_scrollbar">Scrollbar verbergen</string>
     <string name="title_widget_picker">Schaltflächen</string>
     <string name="summary_widget_picker">Schaltflächen auswählen, die angezeigt werden sollen</string>
-    <string name="title_widget_order">Reihenfolge</string>
+    <string name="title_widget_order">Schalter positionen anpassen</string>
     <string name="summary_widget_order">Die Schaltflächen anordnen bzw. umsortieren</string>
     <string name="title_buttons">Schaltflächen</string>
     <string name="title_toggle_wifi">WLAN</string>
@@ -2333,6 +2336,7 @@
     <string name="title_toggle_media_next">Medien: Nächster Titel</string>
     <string name="title_toggle_lte">LTE</string>
     <string name="title_toggle_wimax">WiMAX</string>
+    <string name="title_toggle_media_scan">Media Scanner</string> 
     <string name="title_button_modes">Schaltflächenfunktionen</string>
     <string name="pref_brightness_mode_title">Helligkeitsstufen</string>
     <string name="pref_brightness_mode_summary">Helligkeitsstufen, zwischen denen umgeschaltet wird</string>
@@ -2348,6 +2352,8 @@
     <string name="cm_sound_mode_soundVibrate">Ton + Vibration</string>
     <string name="pref_flash_mode_title">Taschenlampe</string>
     <string name="expanded_haptic_feedback_title">Haptisches Feedback</string>
+    <string name="settings_toggle_position_divider_list">12 toggles placed above this line are active</string>
+    <string name="toggles_style_title">Schalter Layout-Stil</string>
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">App beenden</string>
@@ -2364,11 +2370,46 @@
     <string name="power_menu_title">Ein-/Aus-Taste</string>
     <string name="power_menu_reboot_title">Neustart-Menü</string>
     <string name="power_menu_screenshot_title">Bildschirmfoto</string>
-    <string name="power_menu_expanded_desktop">Erweiterter Desktop</string>
+    <string name="expanded_desktop_summary_status_bar">Mit Statusleiste</string>
+    <string name="expanded_desktop_summary_no_status_bar">Ohne Statusleiste</string>
+    <string name="expanded_desktop_disabled">Aus</string>
+    <string name="expanded_desktop_status_bar">Mit Statusleiste</string>
+    <string name="expanded_desktop_no_status_bar">Ohne Statusleiste</string>
+       <string name="power_menu_expanded_desktop">Erweiterter Desktop</string>
     <string name="power_menu_profiles_title">Profilwechsel</string>
     <string name="power_menu_airplane_title">Flugmodus</string>
     <string name="power_menu_user_title">Benutzer</string>
     <string name="power_menu_sound_title">Lautlos</string>
+
+    <!-- App sidebar -->
+    <string name="app_sidebar_title">\@ppbar</string>
+    <string name="app_sidebar_enable_title">Aktiviere \@ppbar</string>
+    <string name="app_sidebar_enable_summaryOn">\@appbar ist eingeschaltet</string>
+    <string name="app_sidebar_enable_summaryOff">\@appbar ist ausgeschaltet</string>
+    <string name="app_sidebar_setup_items_title">\@ppbar Inhalts Einstellung</string>
+    <string name="app_sidebar_setup_items_summary">Hinzufügen, löschen und verschiebe die Icons in der @ppbar</string>
+    <string name="app_sidebar_transparency_title">\@ppbar Unsichtbarkeit</string>
+    <string name="app_sidebar_transparency_summary">Stelle die unsichbarkeit der \@ppbar ein</string>
+    <string name="app_sidebar_position_title">\@ppbar Position</string>
+    <string name="app_sidebar_position_summary">Positioniere die \@ppbar auf der linken oder rechten Seite</string>
+    <string name="app_sidebar_position_left">Links</string>
+    <string name="app_sidebar_position_right">Rechts</string>
+    <string name="app_sidebar_hide_labels_title">Verstecke Icon beschriftungen</string>
+    <string name="app_sidebar_hide_labels_summary">Verstecke in der \@ppbar die Icon beschriftung</string>
+    <string name="tab_category">Sichtbarer Tab</string>
+    <string name="use_tab_title">Zeige tab</string>
+    <string name="use_tab_summary">Zeigt ein sichtbaren Tab an der Seite welcher die \@appbar bei berührung öffnet.</string>
+    <string name="tab_position_title">Tab location</string>
+    <string name="tab_position_summary">Zeigt den Tab in der mitte, oben oder unten seitlich am Bild.</string>
+    <string name="tab_size_title">Tab Größe</string>
+    <string name="tab_size_summary">Ändert die größe des sichtbaren Tabs.</string>
+    <string name="trigger_category">Auslöser Bereich</string>
+    <string name="trigger_width_title">Auslöser Breite</string>
+    <string name="trigger_width_summary">Verändere die Breite des Auslösers</string>
+    <string name="trigger_top_title">Auslöser Position</string>
+    <string name="trigger_top_summary">Verändere die vertikale Position des Auslösers</string>
+    <string name="trigger_bottom_title">Auslöser Höhe</string>
+    <string name="trigger_bottom_summary">Verändere die Höhe des Auslöseres</string> 
 
     <!-- CM Updater -->
     <string name="cosupdate_settings_title">ChameleonOS Updates</string>
@@ -2386,6 +2427,7 @@
     <string name="status_bar_clock_title">Uhrzeit</string>
     <string name="status_bar_general_title">Allgemein</string>
     <string name="status_bar_show_clock_title">Zeige Uhr</string>
+    <string name="status_bar_center_clock_title">Zentriere Uhr</string> 
     <string name="status_bar_am_pm_title">Tageszeitanzeige</string>
     <string name="status_bar_am_pm_info">24 Stunden Modus ist aktiviert</string>
     <string name="status_bar_battery_title">Batteriestatus</string>
@@ -2532,7 +2574,7 @@
     <string name="accessibility_home_button_answers_call_prerefence_title">Anruf mit Home-Button annehmen</string>
 
     <!-- Navigation Bar -->
-    <string name="navigation_bar_title">Navigationsleiste</string>
+    <string name="navigation_bar_title">Schalter und Layout</string>
     <string name="navigation_bar_help_text">1 - Schloss-Icon berühren, um zu beginnen\n\n2 - Eine Schaltfläche berühren, um ihr eine Funktion zuzuweisen oder diese zu ändern\n\n3 - Eine Schaltfläche gedrückt halten, um sie zu verschieben\n\n4 - Schloss-Icon erneut berühren, um die Änderungen zu speichern\n\n5 - Reset-Icon berühren, um die Vorgaben wiederherzustellen\n\n</string>
     <string name="navigation_bar_tips">&#8226; Eine Funktion kann nur einer Schaltfläche gleichzeitig zugewiesen werden\n\n&#8226; Die Funktion der Home-Schaltfläche kann nicht verändert werden\n\n&#8226; Die seitlichen Schaltflächen können nicht verschoben werden</string>
     <string name="navigation_bar_tips_title">Schnellhilfe</string>
@@ -2546,4 +2588,70 @@
     <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen.</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
-</resources>
+
+    <!-- Permissions Management -->
+    <string name="permissions_settings_title">Rechte Verwaltung</string>
+
+    <!-- Share ChameleonOS -->
+    <string name="share_chameleonos_title">Teile ChameleonOS</string>
+    <string name="share_chameleonos_summary">Teile ChameleonOS mit anderen!</string>
+    <string name="share_message">Ich\ nutze ChameleonOS mit meinem %s! \nhttp://www.chameleonos.org #GetChameleonOS @ChaOS_ROM</string>
+    <string name="share_chooser_title">Teile das ChaOS!</string> 
+
+    <!-- Donate to ChameleonOS -->
+    <string name="donate_chameleonos_title">Unterstütze ChameleonOS</string>
+    <string name="donate_chameleonos_summary">Zeige deine unterstützung für ChameleonOS mit einer Spende.</string>
+    <string name="donate_link" formatted="false">https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=5JTBT7VHVUDE4&amp;lc=US&amp;item_name=ChameleonOS&amp;item_number=donation&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted</string>
+
+    <!-- Navigation bar buttons and shortcuts category title -->
+    <string name="navigation_bar_category">Navigationsleiste</string>
+
+    <!-- Navigation ring shortcuts -->
+    <string name="navigation_ring_title">Schnellstart-Verknüpfungen</string>
+    <string name="navring_target_reset_message">Schnellstart-Verknüpfungen auf Standard zurücksetzen?</string>
+    <string name="navring_target_reset">Schnellstart-Verknüpfungen zurückgesetzt</string>
+    <string name="navring_target_save">Schnellstart-Verknüpfungen gespeichert</string>
+    <string name="navring_action_open_ime_switcher">Eingabemethode wählen</string>
+    <string name="navring_action_kill_app">App schließen</string>
+    <string name="navring_action_none">Keine</string>
+    <string name="navring_action_take_screenshot">Bildschirmfoto</string>
+    <string name="navring_action_ring_vibrate">Ton | Vibration</string>
+    <string name="navring_action_ring_silent">Ton | Lautlos</string>
+    <string name="navring_action_ring_vibrate_silent">Ton | Vibration | Lautlos</string>
+    <string name="navring_action_screen_off">Bildschirm sperren</string>
+    <string name="navring_action_torch">Taschenlampe</string>
+    <string name="navring_action_google_now">Google Now</string>
+    <string name="navring_choose_action_title">Aktion auswählen</string> 
+
+    <!-- Stylus Gestures -->
+    <string name="gestures_settings_title">Stiftgesten</string>
+    <string name="category_spen_title">Stiftgesten</string>
+    <string name="enable_subcat_title">Stift</string>
+    <string name="enable_spen_title_head">Stiftgesten aktivieren</string>
+    <string name="enable_spen_summary_head">Aktionen durch Stiftgesten mit gedrücktem Knopf auslösen\nHinweis: Apps reagieren nicht auf Stifteingaben mit gedrücktem Knopf</string>
+    <string name="gestures_subcat_title">Gesten</string>
+    <string name="gestures_left_spen_title_head">Nach links wischen</string>
+    <string name="gestures_left_spen_summary_head">Aktion bei Wischen nach links</string>
+    <string name="gestures_right_spen_title_head">Nach rechts wischen</string>
+    <string name="gestures_right_spen_summary_head">Aktion bei Wischen nach rechts</string>
+    <string name="gestures_up_spen_title_head">Nach oben wischen</string>
+    <string name="gestures_up_spen_summary_head">Aktion bei Wischen nach oben</string>
+    <string name="gestures_down_spen_title_head">Nach unten wischen</string>
+    <string name="gestures_down_spen_summary_head">Aktion bei Wischen nach unten</string>
+    <string name="gestures_long_spen_title_head">Lange drücken</string>
+    <string name="gestures_long_spen_summary_head">Aktion bei langem Drücken</string>
+    <string name="gestures_double_spen_title_head">Doppelt tippen</string>
+    <string name="gestures_double_spen_summary_head">Aktion bei doppeltem Tippen</string>
+
+    <!-- Gestures Options -->
+    <string name="gestures_action_empty">Keine Aktion</string>
+    <string name="gestures_action_home">Home-Taste auslösen</string>
+    <string name="gestures_action_back">Zurück-Taste auslösen</string>
+    <string name="gestures_action_menu">Menü-Taste auslösen</string>
+    <string name="gestures_action_search">Suche</string>
+    <string name="gestures_action_recent">Zuletzt geöffnete Apps</string>
+
+    <!-- Stylus gestures -->
+    <string name="stylus_app_not_installed">%s ist nicht installiert</string> 
+
+ </resources>

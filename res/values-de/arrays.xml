@@ -359,5 +359,28 @@
     <item>Brasilien</item>
   </string-array>
 
+    <string-array name="toggles_style_entries">
+        <item>Keine</item>
+        <item>Kompakt</item>
+        <item>Ganze Seite</item>
+    </string-array>
+
+    <!-- App sidebar -->
+    <string-array name="app_sidebar_position_entries" translatable="false">
+        <item>@string/app_sidebar_position_left</item>
+        <item>@string/app_sidebar_position_right</item>
+    </string-array>
+
+    <string-array name="tab_position_entries">
+        <item>Oben</item>
+        <item>Mitte</item>
+        <item>Unten</item>
+    </string-array>
+
+    <string-array name="tab_size_entries">
+        <item>Klein</item>
+        <item>Mittle</item>
+        <item>Groß</item>
+    </string-array>
   <!-- **** CYANOGENMOD EDITS END **** -->
 </resources>
