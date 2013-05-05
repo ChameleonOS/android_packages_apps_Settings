@@ -4365,6 +4365,8 @@
     <!-- Label for are-notifications-enabled checkbox in app details [CHAR LIMIT=20] -->
     <string name="app_notifications_switch_label">Show notifications</string>
 
+    <string name="app_theme_compat_mode_switch_label">Theme compatibility mode</string>
+
     <!--  Help URLs for some screens. Not specified here. Specified in product overlays --><skip/>
     <!-- Help menu label [CHAR LIMIT=20] -->
     <string name="help_label">Help</string>
