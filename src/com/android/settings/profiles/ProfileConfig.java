@@ -36,7 +36,7 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
@@ -161,7 +161,7 @@ public class ProfileConfig extends SettingsPreferenceFragment
     }
 
     private void startNFCProfileWriter() {
-        PreferenceActivity pa = (PreferenceActivity) getActivity();
+        PreferenceDrawerActivity pa = (PreferenceDrawerActivity) getActivity();
         Intent i = new Intent(this.getActivity(), NFCProfileWriter.class);
         i.putExtra(NFCProfileWriter.EXTRA_PROFILE_UUID, mProfile.getUuid().toString());
         i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -353,7 +353,7 @@ public class ProfileConfig extends SettingsPreferenceFragment
         args.putParcelable("Profile", mProfile);
 
         String header = mProfile.getName().toString() + ": " + title.toString();
-        PreferenceActivity pa = (PreferenceActivity) getActivity();
+        PreferenceDrawerActivity pa = (PreferenceDrawerActivity) getActivity();
         pa.startPreferencePanel(ProfileGroupConfig.class.getName(), args,
                 0, header, this, PROFILE_GROUP_DETAILS);
     }

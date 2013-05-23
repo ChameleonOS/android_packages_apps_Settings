@@ -34,7 +34,7 @@ import android.os.Handler;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -98,8 +98,8 @@ public final class WifiDisplaySettings extends SettingsPreferenceFragment {
 
         Activity activity = getActivity();
         mActionBarSwitch = new Switch(activity);
-        if (activity instanceof PreferenceActivity) {
-            PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
+        if (activity instanceof PreferenceDrawerActivity) {
+            PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity) activity;
             if (preferenceActivity.onIsHidingHeaders() || !preferenceActivity.onIsMultiPane()) {
                 final int padding = activity.getResources().getDimensionPixelSize(
                         R.dimen.action_bar_switch_padding);
