@@ -5215,6 +5215,11 @@
     <string name="navring_action_google_now">Google Now</string>
     <string name="navring_choose_action_title">Choose action</string>
 
+    <!-- Experimental category title -->
+    <string name="experimental_category">Experimental</string>
+    <!-- Tablet UI title -->
+    <string name="tablet_ui_title">Tablet UI</string>
+
     <!-- Stylus Gestures -->
     <string name="gestures_settings_title">Stylus gestures</string>
     <string name="category_spen_title">Stylus gestures</string>

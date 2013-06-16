@@ -23,7 +23,9 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
@@ -35,7 +37,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SystemSettings extends SettingsPreferenceFragment {
+public class SystemSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
@@ -49,10 +51,12 @@ public class SystemSettings extends SettingsPreferenceFragment {
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
     private static final String KEY_POWER_MENU = "power_menu";
+    private static final String KEY_TABLET_UI = "tablet_ui";
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
     private boolean mIsPrimary;
+    private CheckBoxPreference mTabletUI;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -125,8 +129,30 @@ public class SystemSettings extends SettingsPreferenceFragment {
             }
         }
 
+        mTabletUI = (CheckBoxPreference) findPreference(KEY_TABLET_UI);
+        mTabletUI.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.ENABLE_TABLET_MODE, 0) == 1));
+        mTabletUI.setOnPreferenceChangeListener(this);
+
+        // remove the tablet UI preference smallest width is >= 720
+        int smallestWidth = getActivity().getResources().getConfiguration().smallestScreenWidthDp;
+        if (smallestWidth >= 720) {
+            prefScreen.removePreference(mTabletUI);
+        }
+
+
         // Don't display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mTabletUI) {
+            boolean tabletMode = ((Boolean) newValue).equals(Boolean.TRUE);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.ENABLE_TABLET_MODE, tabletMode ? 1 : 0);
+            return true;
+        }
+        return false;
     }
 
     private void updateLightPulseDescription() {

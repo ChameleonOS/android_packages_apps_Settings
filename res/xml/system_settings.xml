@@ -84,4 +84,14 @@
             android:title="@string/navigation_ring_title" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="experimental_category"
+        android:title="@string/experimental_category" >
+
+       <CheckBoxPreference
+            android:key="tablet_ui"
+            android:title="@string/tablet_ui_title"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
