@@ -134,13 +134,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
                 Settings.System.ENABLE_TABLET_MODE, 0) == 1));
         mTabletUI.setOnPreferenceChangeListener(this);
 
-        // remove the tablet UI preference smallest width is >= 720
-        int smallestWidth = getActivity().getResources().getConfiguration().smallestScreenWidthDp;
-        if (smallestWidth >= 720) {
-            prefScreen.removePreference(mTabletUI);
-        }
-
-
         // Don't display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
     }
