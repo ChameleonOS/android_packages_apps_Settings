@@ -49,6 +49,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -89,6 +90,7 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
     private static final int MENU_RESET = Menu.FIRST;
     private static final int MENU_SAVE = Menu.FIRST + 1;
     private static String EMPTY_LABEL;
+    private static String TOGGLE_RINGER_LABEL;
 
     class TargetInfo {
         String uri, pkgName;
@@ -123,6 +125,7 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
         mPicker = new ShortcutPickHelper(mActivity, this);
         mImageTmp = new File(mActivity.getCacheDir() + "/target.tmp");
         EMPTY_LABEL = mActivity.getResources().getString(R.string.lockscreen_target_empty);
+        TOGGLE_RINGER_LABEL = mActivity.getResources().getString(R.string.lockscreen_target_toggle_ringer);
         return inflater.inflate(R.layout.lockscreen_targets, container, false);
     }
 
@@ -165,6 +168,23 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
         states.addState(TargetDrawable.STATE_FOCUSED, activeLayerDrawable);
         return states;
     }
+    
+    private Drawable getSpeakerDrawable(boolean activated) {
+        String iconResource = "ic_lockscreen";
+        AudioManager audioManager = (AudioManager) mActivity.getSystemService(Context.AUDIO_SERVICE);
+        if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_NORMAL) {
+            iconResource = iconResource.concat("_silence");
+        } else {
+            iconResource = iconResource.concat("_speaker");
+        }
+        if (activated) {
+            return mResources.getDrawable(mResources.getIdentifier(
+                new StringBuilder().append(iconResource).append("_activated").toString(), "drawable", "android"));
+        } else {
+            return mResources.getDrawable(mResources.getIdentifier(
+                new StringBuilder().append(iconResource).append("_normal").toString(), "drawable", "android"));
+        }
+    }
 
     private void initializeView(String input) {
         if (input == null) {
@@ -196,50 +216,57 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
                 uri = targetStore[cc];
                 if (!uri.equals(GlowPadView.EMPTY_TARGET)) {
                     try {
-                        Intent in = Intent.parseUri(uri, 0);
-                        if (in.hasExtra(GlowPadView.ICON_FILE)) {
-                            String rSource = in.getStringExtra(GlowPadView.ICON_FILE);
-                            File fPath = new File(rSource);
-                            if (fPath != null) {
-                                if (fPath.exists()) {
-                                    front = new BitmapDrawable(getResources(), getRoundedCornerBitmap(BitmapFactory.decodeFile(rSource)));
-                                    tmpInset = tmpInset + 5;
+                        if (uri.equals(GlowPadView.TOGGLE_RINGER_TARGET)) {
+                            front = getSpeakerDrawable(false);
+                            back = getSpeakerDrawable(true);
+                            tmpInset = 0;
+                            frontBlank = true;
+                        } else {
+                            Intent in = Intent.parseUri(uri, 0);
+                            if (in.hasExtra(GlowPadView.ICON_FILE)) {
+                                String rSource = in.getStringExtra(GlowPadView.ICON_FILE);
+                                File fPath = new File(rSource);
+                                if (fPath != null) {
+                                    if (fPath.exists()) {
+                                        front = new BitmapDrawable(getResources(), getRoundedCornerBitmap(BitmapFactory.decodeFile(rSource)));
+                                        tmpInset = tmpInset + 5;
+                                    }
                                 }
-                            }
-                        } else if (in.hasExtra(GlowPadView.ICON_RESOURCE)) {
-                            String rSource = in.getStringExtra(GlowPadView.ICON_RESOURCE);
-                            String rPackage = in.getStringExtra(GlowPadView.ICON_PACKAGE);
-                            if (rSource != null) {
-                                if (rPackage != null) {
-                                    try {
-                                        Context rContext = mActivity.createPackageContext(rPackage, 0);
-                                        int id = rContext.getResources().getIdentifier(rSource, "drawable", rPackage);
-                                        front = rContext.getResources().getDrawable(id);
-                                        id = rContext.getResources().getIdentifier(rSource.replaceAll("_normal", "_activated"),
-                                                "drawable", rPackage);
-                                        back = rContext.getResources().getDrawable(id);
+                            } else if (in.hasExtra(GlowPadView.ICON_RESOURCE)) {
+                                String rSource = in.getStringExtra(GlowPadView.ICON_RESOURCE);
+                                String rPackage = in.getStringExtra(GlowPadView.ICON_PACKAGE);
+                                if (rSource != null) {
+                                    if (rPackage != null) {
+                                        try {
+                                            Context rContext = mActivity.createPackageContext(rPackage, 0);
+                                            int id = rContext.getResources().getIdentifier(rSource, "drawable", rPackage);
+                                            front = rContext.getResources().getDrawable(id);
+                                            id = rContext.getResources().getIdentifier(rSource.replaceAll("_normal", "_activated"),
+                                                    "drawable", rPackage);
+                                            back = rContext.getResources().getDrawable(id);
+                                            tmpInset = 0;
+                                            frontBlank = true;
+                                        } catch (NameNotFoundException e) {
+                                            e.printStackTrace();
+                                        } catch (NotFoundException e) {
+                                            e.printStackTrace();
+                                        }
+                                    } else {
+                                        front = mResources.getDrawable(mResources.getIdentifier(rSource, "drawable", "android"));
+                                        back = mResources.getDrawable(mResources.getIdentifier(
+                                                rSource.replaceAll("_normal", "_activated"), "drawable", "android"));
                                         tmpInset = 0;
                                         frontBlank = true;
-                                    } catch (NameNotFoundException e) {
-                                        e.printStackTrace();
-                                    } catch (NotFoundException e) {
-                                        e.printStackTrace();
                                     }
-                                } else {
-                                    front = mResources.getDrawable(mResources.getIdentifier(rSource, "drawable", "android"));
-                                    back = mResources.getDrawable(mResources.getIdentifier(
-                                            rSource.replaceAll("_normal", "_activated"), "drawable", "android"));
-                                    tmpInset = 0;
-                                    frontBlank = true;
                                 }
                             }
-                        }
-                        if (front == null) {
-                            ActivityInfo aInfo = in.resolveActivityInfo(packMan, PackageManager.GET_ACTIVITIES);
-                            if (aInfo != null) {
-                                front = aInfo.loadIcon(packMan);
-                            } else {
-                                front = mResources.getDrawable(android.R.drawable.sym_def_app_icon).mutate();
+                            if (front == null) {
+                                ActivityInfo aInfo = in.resolveActivityInfo(packMan, PackageManager.GET_ACTIVITIES);
+                                if (aInfo != null) {
+                                    front = aInfo.loadIcon(packMan);
+                                } else {
+                                    front = mResources.getDrawable(android.R.drawable.sym_def_app_icon).mutate();
+                                }
                             }
                         }
                     } catch (Exception e) {
@@ -355,7 +382,7 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
             String type = mTargetStore.get(i).iconType;
             String source = mTargetStore.get(i).iconSource;
             existingImages.add(source);
-            if (!uri.equals(GlowPadView.EMPTY_TARGET)) {
+            if (!uri.equals(GlowPadView.EMPTY_TARGET) && !uri.equals(GlowPadView.TOGGLE_RINGER_TARGET)) {
                 try {
                     Intent in = Intent.parseUri(uri, 0);
                     if (type != null) {
@@ -459,6 +486,10 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
             mDialogLabel.setText(EMPTY_LABEL);
             mDialogLabel.setTag(GlowPadView.EMPTY_TARGET);
             mDialogIcon.setImageResource(R.drawable.ic_empty);
+        } else if (shortcut_name != null && shortcut_name.equals(TOGGLE_RINGER_LABEL)) {
+            mDialogLabel.setText(TOGGLE_RINGER_LABEL);
+            mDialogLabel.setTag(GlowPadView.TOGGLE_RINGER_TARGET);
+            mDialogIcon.setImageResource(R.drawable.ic_empty);
         } else if (requestCode == IconPicker.REQUEST_PICK_SYSTEM || requestCode == IconPicker.REQUEST_PICK_GALLERY
                 || requestCode == IconPicker.REQUEST_PICK_ICON_PACK) {
             mIconPicker.onActivityResult(requestCode, resultCode, data);
@@ -486,7 +517,7 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
             view.findViewById(R.id.icon).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!mDialogLabel.getText().equals(EMPTY_LABEL)) {
+                    if (!mDialogLabel.getText().equals(EMPTY_LABEL) && !mDialogLabel.getText().equals(TOGGLE_RINGER_LABEL)) {
                         try {
                             mImageTmp.createNewFile();
                             mImageTmp.setWritable(true, false);
@@ -499,14 +530,19 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
             view.findViewById(R.id.label).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mPicker.pickShortcut(new String[] {EMPTY_LABEL}, new ShortcutIconResource[] {
-                            ShortcutIconResource.fromContext(mActivity, android.R.drawable.ic_delete) }, getId());
+                    mPicker.pickShortcut(new String[] {EMPTY_LABEL,TOGGLE_RINGER_LABEL}, new ShortcutIconResource[] {
+                            ShortcutIconResource.fromContext(mActivity, android.R.drawable.ic_delete),
+                            ShortcutIconResource.fromContext(mActivity, R.drawable.toggle_ringer_icon) }, getId());
                 }
             });
             mDialogIcon = ((ImageButton) view.findViewById(R.id.icon));
             mDialogLabel = ((Button) view.findViewById(R.id.label));
             TargetInfo item = mTargetStore.get(target);
-            mDialogIcon.setImageDrawable(mTargetStore.get(target).defaultIcon.mutate());
+            if (mTargetStore.get(target).uri.equals(GlowPadView.TOGGLE_RINGER_TARGET)) {
+                mDialogIcon.setImageResource(R.drawable.ic_empty);
+            } else {
+                mDialogIcon.setImageDrawable(mTargetStore.get(target).defaultIcon.mutate());
+            }
             TargetInfo tmpIcon = new TargetInfo(null);
             tmpIcon.iconType = item.iconType;
             tmpIcon.iconSource = item.iconSource;
@@ -514,6 +550,8 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
             mDialogIcon.setTag(tmpIcon);
             if (mTargetStore.get(target).uri.equals(GlowPadView.EMPTY_TARGET)) {
                 mDialogLabel.setText(EMPTY_LABEL);
+            } else if (mTargetStore.get(target).uri.equals(GlowPadView.TOGGLE_RINGER_TARGET)) {
+                mDialogLabel.setText(TOGGLE_RINGER_LABEL);
             } else {
                 mDialogLabel.setText(mPicker.getFriendlyNameForUri(mTargetStore.get(target).uri));
             }
@@ -533,8 +571,15 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
                     if (type != null && type.equals(GlowPadView.ICON_RESOURCE)) {
                         targetInset = 0;
                     }
-                    InsetDrawable pD = new InsetDrawable(mDialogIcon.getDrawable(), targetInset,
-                            targetInset, targetInset, targetInset);
+                    InsetDrawable pD = null;
+                    if (mDialogLabel.getTag().toString().equals(GlowPadView.TOGGLE_RINGER_TARGET)) {
+                        targetInset = 0;
+                        pD = new InsetDrawable(getSpeakerDrawable(false), targetInset,
+                                targetInset, targetInset, targetInset);
+                    } else {
+                        pD = new InsetDrawable(mDialogIcon.getDrawable(), targetInset,
+                                targetInset, targetInset, targetInset);
+                    }
                     setTarget(mTargetIndex, mDialogLabel.getTag().toString(), pD, type, source, pkgName);
                 }
             });
