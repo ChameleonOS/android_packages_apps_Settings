@@ -84,10 +84,12 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
             // and the navigation bar config on phones that has a navigation bar
             boolean removeKeys = false;
             boolean removeNavbar = false;
+            boolean hasSystemBar = false;
             IWindowManager windowManager = IWindowManager.Stub.asInterface(
                     ServiceManager.getService(Context.WINDOW_SERVICE));
             try {
-                if (windowManager.hasNavigationBar()) {
+                hasSystemBar = windowManager.hasSystemNavBar();
+                if (windowManager.hasNavigationBar() || hasSystemBar) {
                     removeKeys = true;
                 } else {
                     removeNavbar = true;
@@ -99,6 +101,9 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
             // Act on the above
             if (removeKeys) {
                 prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
+                // remove navbar buttons and layout for system bar
+                if (hasSystemBar)
+                    prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
             }
             if (removeNavbar) {
                 prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
