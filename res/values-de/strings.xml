@@ -2382,20 +2382,20 @@
     <string name="power_menu_sound_title">Lautlos</string>
 
     <!-- App sidebar -->
-    <string name="app_sidebar_title">\@ppbar</string>
-    <string name="app_sidebar_enable_title">Aktiviere \@ppbar</string>
+    <string name="app_sidebar_title">Appbar</string>
+    <string name="app_sidebar_enable_title">Aktiviere Appbar</string>
     <string name="app_sidebar_enable_summaryOn">\@appbar ist eingeschaltet</string>
     <string name="app_sidebar_enable_summaryOff">\@appbar ist ausgeschaltet</string>
-    <string name="app_sidebar_setup_items_title">\@ppbar Inhalts Einstellung</string>
+    <string name="app_sidebar_setup_items_title">Appbar Inhalts Einstellung</string>
     <string name="app_sidebar_setup_items_summary">Hinzufügen, löschen und verschiebe die Icons in der @ppbar</string>
-    <string name="app_sidebar_transparency_title">\@ppbar Unsichtbarkeit</string>
-    <string name="app_sidebar_transparency_summary">Stelle die unsichbarkeit der \@ppbar ein</string>
-    <string name="app_sidebar_position_title">\@ppbar Position</string>
-    <string name="app_sidebar_position_summary">Positioniere die \@ppbar auf der linken oder rechten Seite</string>
+    <string name="app_sidebar_transparency_title">Appbar Unsichtbarkeit</string>
+    <string name="app_sidebar_transparency_summary">Stelle die unsichbarkeit der Appbar ein</string>
+    <string name="app_sidebar_position_title">Appbar Position</string>
+    <string name="app_sidebar_position_summary">Positioniere die Appbar auf der linken oder rechten Seite</string>
     <string name="app_sidebar_position_left">Links</string>
     <string name="app_sidebar_position_right">Rechts</string>
     <string name="app_sidebar_hide_labels_title">Verstecke Icon beschriftungen</string>
-    <string name="app_sidebar_hide_labels_summary">Verstecke in der \@ppbar die Icon beschriftung</string>
+    <string name="app_sidebar_hide_labels_summary">Verstecke in der Appbar die Icon beschriftung</string>
     <string name="tab_category">Sichtbarer Tab</string>
     <string name="use_tab_title">Zeige tab</string>
     <string name="use_tab_summary">Zeigt ein sichtbaren Tab an der Seite welcher die \@appbar bei berührung öffnet.</string>
