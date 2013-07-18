@@ -166,7 +166,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
                     break;
                 default:
                     QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_NETWORKMODE);
-                    mStaticTiles.removePreference(mNetworkMode);
+                    if (mNetworkMode != null)
+                        mStaticTiles.removePreference(mNetworkMode);
                     break;
             }
         }
