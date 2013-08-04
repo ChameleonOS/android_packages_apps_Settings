@@ -42,7 +42,7 @@ import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceGroup;
 import android.provider.ContactsContract;
@@ -376,7 +376,7 @@ public class UserSettings extends SettingsPreferenceFragment
             Bundle extras = new Bundle();
             extras.putInt(AppRestrictionsFragment.EXTRA_USER_ID, userId);
             extras.putBoolean(AppRestrictionsFragment.EXTRA_NEW_USER, newUser);
-            ((PreferenceActivity) getActivity()).startPreferencePanel(
+            ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(
                     AppRestrictionsFragment.class.getName(),
                     extras, R.string.user_restrictions_title, null,
                     null, 0);
@@ -389,7 +389,7 @@ public class UserSettings extends SettingsPreferenceFragment
             int titleResId = info.id == UserHandle.USER_OWNER ? R.string.owner_info_settings_title
                     : (info.isRestricted() ? R.string.profile_info_settings_title
                             : R.string.user_info_settings_title);
-            ((PreferenceActivity) getActivity()).startPreferencePanel(
+            ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(
                     OwnerInfoSettings.class.getName(),
                     extras, titleResId, null, null, 0);
         }
