@@ -1284,6 +1284,8 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
 
         private static Uri createTempImageUri(Context context, String fileName) {
             File folder = context.getExternalCacheDir();
+            if (folder == null)
+                folder = context.getCacheDir();
             folder.mkdirs();
             File fullPath = new File(folder, fileName);
             fullPath.delete();
