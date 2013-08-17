@@ -325,7 +325,7 @@
             </intent-filter>
         </activity-alias>
 
-        <activity android:name="ApnSettings"
+        <activity android:name="Settings$ApnSettingsActivity"
                 android:label="@string/apn_settings"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:launchMode="singleTask">
@@ -1135,7 +1135,7 @@
         <activity android:name=".deviceinfo.MiscFilesHandler"
                 android:theme="@android:style/Theme.Holo.DialogWhenLarge"/>
 
-        <activity android:name="ApnEditor"
+        <activity android:name="Settings$ApnEditorActivity"
                 android:label="@string/apn_edit">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -1661,8 +1661,6 @@
         <activity android:name=".notificationlight.NotificationLightSettings" />
 
         <activity android:name=".notificationlight.BatteryLightSettings" />
-
-        <activity android:name=".ApnEditor" />
 
         <activity android:name="Settings$AnonymousStatsActivity"
                 android:label="@string/anonymous_statistics_title"
