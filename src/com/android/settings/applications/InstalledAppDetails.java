@@ -57,6 +57,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceDrawerActivity;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -905,8 +906,13 @@ public class InstalledAppDetails extends Fragment
         if(localLOGV) Log.i(TAG, "appChanged="+appChanged);
         Intent intent = new Intent();
         intent.putExtra(ManageApplications.APP_CHG, appChanged);
-        PreferenceDrawerActivity pa = (PreferenceDrawerActivity)getActivity();
-        pa.finishPreferencePanel(this, Activity.RESULT_OK, intent);
+        if (getActivity() instanceof PreferenceDrawerActivity) {
+            PreferenceDrawerActivity pa = (PreferenceDrawerActivity)getActivity();
+            pa.finishPreferencePanel(this, Activity.RESULT_OK, intent);
+        } else {
+            PreferenceActivity pa = (PreferenceActivity)getActivity();
+            pa.finishPreferencePanel(this, Activity.RESULT_OK, intent);
+        }
     }
     
     private void refreshSizeInfo() {
