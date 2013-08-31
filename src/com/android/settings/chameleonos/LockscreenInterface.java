@@ -34,9 +34,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
+    private static final String KEY_LOCKSCREEN_HIDE_INITIAL_PAGE_HINTS = "lockscreen_hide_initial_page_hints";
 
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mMaximizeWidgets;
+    private CheckBoxPreference mLockscreenHideInitialPageHints;
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -61,6 +63,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mMaximizeWidgets.setOnPreferenceChangeListener(this);
         }
 
+        mLockscreenHideInitialPageHints = (CheckBoxPreference)findPreference(KEY_LOCKSCREEN_HIDE_INITIAL_PAGE_HINTS);
+        if (!Utils.isPhone(getActivity())) {
+            getPreferenceScreen().removePreference(mLockscreenHideInitialPageHints);
+            mLockscreenHideInitialPageHints = null;
+        } else {
+            mLockscreenHideInitialPageHints.setOnPreferenceChangeListener(this);
+        }
+
         PreferenceScreen lockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
             getPreferenceScreen().removePreference(lockscreenButtons);
@@ -83,6 +93,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mMaximizeWidgets.setChecked(Settings.System.getInt(cr,
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
         }
+
+        if (mLockscreenHideInitialPageHints != null) {
+            mLockscreenHideInitialPageHints.setChecked(Settings.System.getInt(cr,
+                    Settings.System.LOCKSCREEN_HIDE_INITIAL_PAGE_HINTS, 0) == 1);
+        }
     }
 
     @Override
@@ -98,6 +113,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (preference == mMaximizeWidgets) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, value ? 1 : 0);
+            return true;
+        } else if (preference == mLockscreenHideInitialPageHints) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_HIDE_INITIAL_PAGE_HINTS, value ? 1 : 0);
             return true;
         }
         return false;

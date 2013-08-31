@@ -5316,6 +5316,8 @@
 
     <string name="lockscreen_maximize_widgets_title">Maximize widgets</string>
     <string name="lockscreen_maximize_widgets_summary">Show widgets maximized and the unlock minimized when the screen is turned on</string>
+    <string name="lockscreen_hide_initial_page_hints_title">Hide initial page hints</string>
+    <string name="lockscreen_hide_initial_page_hints_summary">Disable hints on left and right when the screen is turned on.</string>
 
     <!-- Custom lock screen background -->
     <string name="lockscreen_custom_background_title">Background</string>
