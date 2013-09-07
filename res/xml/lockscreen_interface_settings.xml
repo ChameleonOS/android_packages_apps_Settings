@@ -25,6 +25,15 @@
          <extra android:name="cm_security" android:value="true" />
      </PreferenceScreen>
 
+      <ListPreference
+        android:key="default_lock_wallpaper"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_custom_wallpaper_title"
+        android:title="@string/lockscreen_custom_wallpaper_title"
+        android:entries="@array/lockscreen_wallpaper_entries"
+        android:entryValues="@array/lockscreen_wallpaper_values" />
+
+
      <ListPreference
         android:key="lockscreen_battery_status"
         android:persistent="false"
