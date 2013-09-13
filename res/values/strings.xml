@@ -5425,8 +5425,10 @@
 
     <!-- Experimental category title -->
     <string name="experimental_category">Experimental</string>
-    <!-- Tablet UI title -->
-    <string name="tablet_ui_title">Tablet UI</string>
+    <!-- Display UI title -->
+    <string name="ui_display_title">Display UI</string>
+    <!-- System settings screen, setting option summary to change display ui -->
+    <string name="ui_display_summary"><xliff:g id="ui_display_description">%1$s</xliff:g> will be shown</string>
 
     <!-- Stylus Gestures -->
     <string name="gestures_settings_title">Stylus gestures</string>
