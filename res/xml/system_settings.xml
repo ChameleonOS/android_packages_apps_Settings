@@ -44,6 +44,14 @@
         android:title="@string/power_menu_title"
         android:fragment="com.android.settings.chameleonos.PowerMenu" />
 
+    <!-- Active display -->
+    <PreferenceScreen
+        android:key="active_display"
+        android:fragment="com.android.settings.chameleonos.ActiveDisplaySettings"
+        android:title="@string/ad_settings_title"
+        android:summary="@string/ad_settings_summary">
+    </PreferenceScreen>
+
     <!-- Lock clock -->
     <PreferenceScreen
         android:key="lock_clock"
