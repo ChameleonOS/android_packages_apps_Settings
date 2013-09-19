@@ -45,6 +45,13 @@
         android:summary="@string/ad_pocket_mode_summary"
         android:dependency="ad_enable"/>
 
+    <CheckBoxPreference
+        android:key="ad_sunlight_mode"
+        android:persistent="false"
+        android:title="@string/ad_sunlight_mode_title"
+        android:summary="@string/ad_sunlight_mode_summary"
+        android:dependency="ad_enable"/>
+
     <ListPreference
         android:key="ad_redisplay"
         android:persistent="false"
