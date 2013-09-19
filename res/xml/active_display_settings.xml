@@ -54,16 +54,34 @@
         android:entryValues="@array/ad_redisplay_values"
         android:dependency="ad_enable"/>
 
-    <com.android.settings.chameleonos.SeekBarPreference
-        android:key="ad_brightness"
-        android:persistent="false"
-        android:title="@string/ad_brightness_title"
-        android:summary="@string/ad_brightness_summary"
-        android:max="100"
-        settings:min="0"
-        settings:unitsLeft=""
-        settings:unitsRight="%"
-        android:defaultValue="100"
-        android:dependency="ad_enable" />
+    <PreferenceCategory
+        android:key="ad_customizations"
+        android:title="@string/ad_customizations_title" />
+
+        <CheckBoxPreference
+            android:key="ad_show_date"
+            android:persistent="false"
+            android:title="@string/ad_show_date_title"
+            android:summary="@string/ad_show_date_summary"
+            android:dependency="ad_enable"/>
+
+        <CheckBoxPreference
+            android:key="ad_show_ampm"
+            android:persistent="false"
+            android:title="@string/ad_show_ampm_title"
+            android:summary="@string/ad_show_ampm_summary"
+            android:dependency="ad_enable"/>
+
+        <com.android.settings.chameleonos.SeekBarPreference
+            android:key="ad_brightness"
+            android:persistent="false"
+            android:title="@string/ad_brightness_title"
+            android:summary="@string/ad_brightness_summary"
+            android:max="100"
+            settings:min="0"
+            settings:unitsLeft=""
+            settings:unitsRight="%"
+            android:defaultValue="100"
+            android:dependency="ad_enable" />
 
 </PreferenceScreen>
