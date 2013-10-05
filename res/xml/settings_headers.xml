@@ -249,6 +249,13 @@
         android:icon="@drawable/ic_settings_accessibility"
         android:title="@string/accessibility_settings" />
 
+    <!-- ChaOS Lab -->
+    <header
+        android:id="@+id/lab_settings"
+        android:fragment="com.android.settings.chameleonos.LabSettings"
+        android:icon="@drawable/ic_settings_lab"
+        android:title="@string/lab_settings_title" />
+
     <!-- Development -->
     <header
         android:id="@+id/development_settings"
