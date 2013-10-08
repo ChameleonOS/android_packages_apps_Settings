@@ -1649,6 +1649,8 @@
 
         <activity android:name=".chameleonos.QuickSettings" />
 
+        <activity android:name=".chameleonos.LabSettings" />
+
         <activity android:name=".profiles.NFCProfile"
                 android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
