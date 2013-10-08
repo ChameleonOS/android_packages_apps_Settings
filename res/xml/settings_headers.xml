@@ -252,7 +252,7 @@
     <!-- ChaOS Lab -->
     <header
         android:id="@+id/lab_settings"
-        android:fragment="com.android.settings.chameleonos.LabSettings"
+        android:fragment="com.android.settings.chameleonos.labs.LabSettings"
         android:icon="@drawable/ic_settings_lab"
         android:title="@string/lab_settings_title" />
 

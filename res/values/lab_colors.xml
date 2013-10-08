@@ -18,4 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Gesture Anywhere -->
+    <color name="ga_gesture_color">@android:color/holo_blue_light</color>
+
 </resources>
