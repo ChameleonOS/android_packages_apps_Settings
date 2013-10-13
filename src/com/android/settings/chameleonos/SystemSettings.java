@@ -42,7 +42,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
 
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
-    private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
     private static final String KEY_NAVIGATION_RING = "navigation_ring";
     private static final String KEY_NAVIGATION_BAR_CATEGORY = "navigation_bar_category";
@@ -50,7 +49,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
-    private static final String KEY_POWER_MENU = "power_menu";
     private static final String KEY_UI_DISPLAY = "ui_display";
 
     private PreferenceScreen mNotificationPulse;
@@ -89,16 +87,13 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
 
             // Only show the hardware keys config on a device that does not have a navbar
             // and the navigation bar config on phones that has a navigation bar
-            boolean removeKeys = false;
             boolean removeNavbar = false;
             boolean hasSystemBar = false;
             IWindowManager windowManager = IWindowManager.Stub.asInterface(
                     ServiceManager.getService(Context.WINDOW_SERVICE));
             try {
                 hasSystemBar = windowManager.hasSystemNavBar();
-                if (windowManager.hasNavigationBar() || hasSystemBar) {
-                    removeKeys = true;
-                } else {
+                if (!windowManager.hasNavigationBar() && !hasSystemBar) {
                     removeNavbar = true;
                 }
             } catch (RemoteException e) {
@@ -106,12 +101,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
             }
 
             // Act on the above
-            if (removeKeys) {
-                prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
-                // remove navbar buttons and layout for system bar
-                if (hasSystemBar)
-                    prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
-            }
             if (removeNavbar && (uiDisplay != 2)) {
                 prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
                 prefScreen.removePreference(findPreference(KEY_NAVIGATION_RING));
@@ -120,13 +109,11 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
         } else {
             // Secondary user is logged in, remove all primary user specific preferences
             prefScreen.removePreference(findPreference(KEY_BATTERY_LIGHT));
-            prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
             prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
             prefScreen.removePreference(findPreference(KEY_NAVIGATION_RING));
             prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_CATEGORY));
             prefScreen.removePreference(findPreference(KEY_STATUS_BAR));
             prefScreen.removePreference(findPreference(KEY_QUICK_SETTINGS));
-            prefScreen.removePreference(findPreference(KEY_POWER_MENU));
             prefScreen.removePreference(findPreference(KEY_NOTIFICATION_DRAWER));
         }
 

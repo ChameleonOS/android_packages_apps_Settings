@@ -1644,6 +1644,8 @@
 
         <activity android:name=".chameleonos.LockscreenButtons" />
 
+        <activity android:name=".chameleonos.ButtonSettings" />
+
         <activity android:name=".chameleonos.PowerMenu" />
 
         <activity android:name=".chameleonos.QuickSettings" />

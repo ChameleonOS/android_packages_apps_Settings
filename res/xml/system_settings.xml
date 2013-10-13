@@ -39,11 +39,6 @@
             android:fragment="com.android.settings.chameleonos.AppSidebar"
             android:title="@string/app_sidebar_title" />
 
-    <PreferenceScreen
-        android:key="power_menu"
-        android:title="@string/power_menu_title"
-        android:fragment="com.android.settings.chameleonos.PowerMenu" />
-
     <!-- Active display -->
     <PreferenceScreen
         android:key="active_display"
@@ -71,11 +66,6 @@
         android:key="battery_light"
         android:title="@string/battery_light_title"
         android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
-
-    <PreferenceScreen
-        android:key="hardware_keys"
-        android:fragment="com.android.settings.chameleonos.HardwareKeys"
-        android:title="@string/hardware_keys_title" />
 
     <PreferenceCategory
         android:key="navigation_bar_category"
