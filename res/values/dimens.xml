@@ -31,7 +31,7 @@
 
     <dimen name="data_usage_chart_height">252dip</dimen>
     <dimen name="data_usage_chart_optimalWidth">440dip</dimen>
-    <dimen name="shortcut_picker_left_padding">70dip</dimen>
+
     <dimen name="volume_seekbar_side_margin">8dip</dimen>
 
     <dimen name="crypt_clock_size">100sp</dimen>
@@ -61,27 +61,6 @@
     <dimen name="keyguard_appwidget_picker_margin_left">6dip</dimen>
     <dimen name="keyguard_appwidget_picker_margin_right">6dip</dimen>
     <integer name="keyguard_appwidget_picker_cols">1</integer>
-
-    <!-- **** CYANOGENMOD ADDITIONS START **** -->
-
-    <!-- Light settings dialog -->
-    <dimen name="dialog_light_settings_width">400dip</dimen>
-
-    <!-- height of a normal list item in edit playlist mode -->
-    <dimen name="normal_height">64dip</dimen>
-    <!-- height of an expanded list item in edit playlist mode -->
-    <dimen name="expanded_height">128dip</dimen>
-
-    <!-- Default distance beyond which snaps to the matching target -->
-    <dimen name="navbar_search_snap_margin">40dip</dimen>
-    <!-- Diameter of outer shape drawable shown in navbar search. Should be 1/2 of above value -->
-    <dimen name="navbar_search_outerring_radius">170dp</dimen>
-    <!-- Diameter of outer shape drawable shown in navbar search-->
-    <dimen name="navbar_search_outerring_diameter">340dp</dimen>
-    <!-- Height of search panel including navigation bar height -->
-    <dimen name="navbar_search_panel_height">230dip</dimen>
-
-    <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <dimen name="circle_avatar_size">48dp</dimen>
     <dimen name="circle_avatar_frame_stroke_width">1dp</dimen>

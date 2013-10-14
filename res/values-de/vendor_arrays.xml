@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2013, The ChameleonOS Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+  <!-- Volume Overlay options -->
+  <string-array name="volume_overlay_entries">
+    <item>Einzeln</item>
+    <item>Erweiterbar</item>
+    <item>Erweitert</item>
+    <item>Keine</item>
+  </string-array>
+
+  <!-- Performance options -->
+  <string-array name="pref_zram_size_entries">
+    <item>Deaktiviert</item>
+    <item>10 %</item>
+    <item>18 % (Standard)</item>
+    <item>26 %</item>
+  </string-array>
+
+  <!-- Profile mode options -->
+  <string-array name="profile_entries">
+    <item>Aktivieren</item>
+    <item>Deaktivieren</item>
+    <item>Nicht ändern</item>
+  </string-array>
+
+  <!-- Profile mode options -->
+  <string-array name="profile_connection_entries">
+    <item>Deaktivieren</item>
+    <item>Aktivieren</item>
+  </string-array>
+
+  <!-- Network widget options -->
+  <string-array name="entries_network_widget">
+    <item>2G|3G+2G</item>
+    <item>Nur 2G|Nur 3G</item>
+    <item>Nur 2G|Nur 3G|2G+3G</item>
+  </string-array>
+
+  <!-- Flash widget options -->
+  <string-array name="entries_flash_widget">
+    <item>Normal</item>
+    <item>Hell</item>
+  </string-array>
+
+  <!-- Haptic feedback options -->
+  <string-array name="haptic_feedback_entries">
+    <item>Globale Einstellungen verwenden</item>
+    <item>Aktivieren</item>
+    <item>Deaktivieren</item>
+  </string-array>
+
+  <!-- Status bar clock options (AM/PM) -->
+  <string-array name="entries_status_bar_am_pm">
+    <item>Normal</item>
+    <item>Klein</item>
+    <item>Aus (Standard)</item>
+  </string-array>
+
+   <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi region code. -->
+  <string-array name="wifi_countrycode_entries">
+    <item>USA</item>
+    <item>Kanada, Taiwan</item>
+    <item>Deutschland</item>
+    <item>Europa</item>
+    <item>Japan, Russland</item>
+    <item>Australien</item>
+    <item>China</item>
+    <item>Korea</item>
+    <item>Türkei</item>
+    <item>Singapur</item>
+    <item>Brasilien</item>
+  </string-array>
+
+    <string-array name="toggles_style_entries">
+        <item>Keine</item>
+        <item>Kompakt</item>
+        <item>Ganze Seite</item>
+    </string-array>
+
+    <!-- App sidebar -->
+    <string-array name="app_sidebar_position_entries" translatable="false">
+        <item>@string/app_sidebar_position_left</item>
+        <item>@string/app_sidebar_position_right</item>
+    </string-array>
+
+    <string-array name="tab_position_entries">
+        <item>Oben</item>
+        <item>Mitte</item>
+        <item>Unten</item>
+    </string-array>
+
+    <string-array name="tab_size_entries">
+        <item>Klein</item>
+        <item>Mittle</item>
+        <item>Groß</item>
+    </string-array>
+
+</resources>

@@ -166,19 +166,6 @@
     <item msgid="6670588712989942178">"Μόνο 5 GHz"</item>
     <item msgid="2715516524973207876">"Μόνο 2,4 GHz"</item>
   </string-array>
-  <string-array name="wifi_countrycode_entries">
-    <item>Ηνωμένες Πολιτείες</item>
-    <item>Καναδάς, Ταϊβάν</item>
-    <item>Γερμανία</item>
-    <item>Ευρώπη</item>
-    <item>Ιαπωνία, Ρωσία</item>
-    <item>Αυστραλία</item>
-    <item>Κίνα</item>
-    <item>Κορέα</item>
-    <item>Τουρκία</item>
-    <item>Σιγκαπούρη</item>
-    <item>Βραζιλία</item>
-  </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Χρόνος χρήσης"</item>
     <item msgid="3703676222230317933">"Εκκίνηση καταμέτρησης"</item>
@@ -404,60 +391,4 @@
     <item msgid="5077768429488260031">"Να μην επιτρέπεται ποτέ"</item>
     <item msgid="1417929597727989746">"Να επιτρέπεται πάντα"</item>
   </string-array>
-
-    <!-- CYANOGENMOD EDITS START -->
-
-    <!-- Volume Overlay options. -->
-    <string-array name="volume_overlay_entries">
-        <item>Μονό</item>
-        <item>Επεκτάσιμο</item>
-        <item>Ανεπτυγμένο</item>
-        <item>Κανένα</item>
-    </string-array>
-
-    <string-array name="pref_zram_size_entries">
-        <item>Ανενεργό</item>
-        <item>10%</item>
-        <item>18% (προεπιλογή)</item>
-        <item>26%</item>
-    </string-array>
-
-    <!-- Profile mode options. -->
-    <string-array name="profile_entries">
-        <item>Ενεργό</item>
-        <item>Ανενεργό</item>
-        <item>Να μην παρακαμφθεί</item>
-    </string-array>
-
-    <!-- Profile mode options. -->
-    <string-array name="profile_connection_entries">
-        <item>Ανενεργό</item>
-        <item>Ενεργό</item>
-    </string-array>
-
-    <!-- Arrays required by Notification Widgets. -->
-
-    <string-array name="entries_network_widget">
-        <item>2G/3G+2G</item>
-        <item>2G/Μόνο 3G</item>
-        <item>2G/Μόνο 3G/3G+2G</item>
-    </string-array>
-
-    <string-array name="entries_screentimeout_widget">
-        <item>15δ/1λ/5λ</item>
-        <item>30δ/2λ/5λ</item>
-    </string-array>
-
-    <string-array name="entries_flash_widget">
-        <item>Κανονικό</item>
-        <item>Υψηλό</item>
-    </string-array>
-
-    <string-array name="haptic_feedback_entries">
-        <item>Χρήση γενικής ρύθμισης</item>
-        <item>Ενεργοποιημένη</item>
-        <item>Απενεργοποιημένη</item>
-    </string-array>
-
-    <!-- CYANOGENMOD EDITS END -->
 </resources>

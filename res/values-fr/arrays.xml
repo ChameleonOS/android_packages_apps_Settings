@@ -166,19 +166,6 @@
     <item>5 GHz uniquement</item>
     <item>2,4 GHz uniquement</item>
   </string-array>
-  <string-array name="wifi_countrycode_entries">
-    <item>États-Unis</item>
-    <item>Canada, Taiwan</item>
-    <item>Allemagne</item>
-    <item>Europe</item>
-    <item>Japan, Russie</item>
-    <item>Australie</item>
-    <item>Chine</item>
-    <item>Corée</item>
-    <item>Turquie</item>
-    <item>Singapour</item>
-    <item>Brésil</item>
-  </string-array>
   <string-array name="usage_stats_display_order_types">
     <item>Temps d\'utilisation</item>
     <item>Nombre de lancements</item>
@@ -408,43 +395,5 @@
     <item>Demander</item>
     <item>Ne jamais autoriser</item>
     <item>Toujours autoriser</item>
-  </string-array>
-  <string-array name="pref_zram_size_entries">
-    <item>Désactivé</item>
-    <item>10%</item>
-    <item>18% (défaut)</item>
-    <item>26%</item>
-  </string-array>
-  <string-array name="profile_entries">
-    <item>Activé</item>
-    <item>Désactivé</item>
-    <item>Ne pas outrepasser</item>
-  </string-array>
-  <string-array name="profile_connection_entries">
-    <item>Désactivé</item>
-    <item>Activé</item>
-  </string-array>
-  <string-array name="entries_network_widget">
-    <item>2G/3G+2G</item>
-    <item>2G/3G seulement</item>
-    <item>2G/3G seulement/3G+2G</item>
-  </string-array>
-  <string-array name="entries_screentimeout_widget">
-    <item>15s/1m/5m</item>
-    <item>30s/2m/5m</item>
-  </string-array>
-  <string-array name="entries_flash_widget">
-    <item>Normal</item>
-    <item>Elevé</item>
-  </string-array>
-  <string-array name="haptic_feedback_entries">
-    <item>Utilisé les paramètres globaux</item>
-    <item>Activé</item>
-    <item>Désactivé</item>
-  </string-array>
-  <string-array name="entries_status_bar_am_pm">
-    <item>Normal</item>
-    <item>Petit</item>
-    <item>Aucun</item>
   </string-array>
 </resources>
