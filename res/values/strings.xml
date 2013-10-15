@@ -5280,6 +5280,8 @@
     <string name="ad_sunlight_mode_title">Sunlight mode</string>
     <string name="ad_sunlight_mode_summary">Invert the colors when in areas with bright light such as direct sunlight.</string>
     <string name="ad_customizations_title">Customizations</string>
+    <string name="ad_excluded_apps_title">Excluded applications</string>
+    <string name="ad_excluded_apps_summary">Excluded applications will not show up in active display.</string>
     <string name="ad_brightness_title">Notification brightness</string>
     <string name="ad_brightness_summary">Brightness level for displaying notifications when automatic brightness is not enabled.</string>
     <string name="ad_show_date_title">Show date</string>
