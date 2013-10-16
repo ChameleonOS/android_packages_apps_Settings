@@ -5233,6 +5233,10 @@
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display number of pending notifications</string>
 
+    <!-- Show status bar when notification posted -->
+    <string name="show_status_bar_on_notification_title">Show on notification</string>
+    <string name="show_status_bar_on_notification_summary">Display the status bar when a notification arrives and status bar is hidden.</string>
+
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Wakeup options</string>
     <string name="pref_volume_wake_title">Volume rocker wake</string>

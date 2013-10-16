@@ -89,6 +89,12 @@
             android:title="@string/status_bar_notif_count_title"
             android:summary="@string/status_bar_notif_count_summary"
             android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="show_status_bar_on_notification"
+            android:title="@string/show_status_bar_on_notification_title"
+            android:summary="@string/show_status_bar_on_notification_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>
