@@ -5303,7 +5303,6 @@
 
     <!-- Quick settings panel  -->
     <string name="quick_settings_panel_title">Quick Settings panel</string>
-    <string name="quick_settings_title">Quick Settings</string>
     <string name="title_static_tiles">Static tiles</string>
     <string name="tile_picker_title">Tiles and layout</string>
     <string name="tile_picker_summary">View, select or change the layout of the displayed tiles</string>
@@ -5313,6 +5312,7 @@
     <string name="title_tile_battery">Battery stats</string>
     <string name="title_tile_bluetooth">Bluetooth</string>
     <string name="title_tile_brightness">Brightness</string>
+    <string name="title_tile_camera">Camera</string>
     <string name="title_tile_sleep">Go to sleep</string>
     <string name="title_tile_gps">GPS</string>
     <string name="title_tile_torch">Torch</string>
@@ -5326,18 +5326,23 @@
     <string name="title_tile_sync">Sync</string>
     <string name="title_tile_wifiap">Wi-Fi AP</string>
     <string name="title_tile_wifi">Wi-Fi</string>
-    <string name="title_tile_wimax">WiMAX</string>
     <string name="title_tile_user">User switcher</string>
     <string name="title_tile_networkmode">Network mode</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">Screen timeout</string>
+    <string name="title_tile_quiet_hours">Quiet hours</string>
+    <string name="title_tile_volume">Volume</string>
+    <string name="title_tile_expanded_desktop">Expanded desktop</string>
+    <string name="title_tile_network_adb">ADB over network</string>
 
     <string name="title_dynamic_tiles">Dynamic tiles</string>
     <string name="dynamic_tiles_note_title">Note</string>
     <string name="dynamic_tiles_note_summary">Dynamic tiles are not always visible and will only show up if triggered by a system event</string>
     <string name="title_dynamic_alarm">Alarm clock</string>
     <string name="title_dynamic_bugreport">Bug report</string>
+    <string name="title_dynamic_dock_battery">Dock battery</string>
     <string name="title_dynamic_ime">IME changer</string>
+    <string name="title_dynamic_usbtether">USB Tether</string>
     <string name="title_dynamic_wifi">Wi-Fi display</string>
 
     <string name="title_general">General</string>
