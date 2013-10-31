@@ -70,4 +70,23 @@
     <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
     <string name="ga_gestures_error_loading">Could not load %s. Make sure you have storage available.</string>
 
+    <!-- Quick stats panel  -->
+    <string name="qstats_title">Quick Stats</string>
+    <string name="qstats_enabled_title">Quick Stats</string>
+    <string name="qstats_enabled_summary">Enable the Quick Stats feature</string>
+    <string name="qstats_tile_picker_title">Tiles and layout</string>
+    <string name="qstats_tile_picker_summary">View, select or change the layout of the displayed tiles</string>
+    <string name="qstats_tile_choose_title">Choose a tile</string>
+    <string name="qstats_title_tile_battery">Battery stats</string>
+    <string name="qstats_title_tile_wifi">Wi-Fi stats</string>
+    <string name="qstats_title_tile_processor">Processor stats</string>
+    <string name="qstats_title_tile_temperature">Temperature stats</string>
+    <string name="qstats_title_tile_calls">Call stats</string>
+    <string name="qstats_title_tile_messaging">Messaging stats</string>
+    <string name="qstats_title_tile_memory">Memory stats</string>
+    <string name="qstats_title_tile_storage">Storage stats</string>
+    <!-- Reset tiles -->
+    <string name="qstats_tiles_reset_title">Reset</string>
+    <string name="qstats_tiles_reset_message">Restore the default displayed tiles and layout?</string>
+
 </resources>

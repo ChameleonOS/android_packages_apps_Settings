@@ -23,4 +23,10 @@
         android:icon="@drawable/ic_settings_gesture_anywhere"
         android:title="@string/gesture_anywhere_title" />
 
+    <PreferenceScreen
+        android:key="quick_stats"
+        android:fragment="com.android.settings.chameleonos.labs.quickstats.QuickStatsSettings"
+        android:icon="@drawable/ic_settings_quick_stats"
+        android:title="@string/qstats_title" />
+
 </PreferenceScreen>
