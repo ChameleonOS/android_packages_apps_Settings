@@ -19,7 +19,7 @@ package com.android.settings.profiles;
 import android.content.ActivityNotFoundException;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -138,7 +138,7 @@ public class ProfilesPreference extends CheckBoxPreference {
 
     // utility method used to start sub activity
     private void startProfileConfigActivity() {
-        PreferenceDrawerActivity pa = (PreferenceDrawerActivity) mFragment.getActivity();
+        PreferenceActivity pa = (PreferenceActivity) mFragment.getActivity();
         pa.startPreferencePanel(ProfileConfig.class.getName(), mSettingsBundle,
                 R.string.profile_profile_manage, null, mFragment, PROFILE_DETAILS);
     }

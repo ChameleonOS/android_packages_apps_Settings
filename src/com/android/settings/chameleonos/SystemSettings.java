@@ -88,12 +88,10 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
             // Only show the hardware keys config on a device that does not have a navbar
             // and the navigation bar config on phones that has a navigation bar
             boolean removeNavbar = false;
-            boolean hasSystemBar = false;
             IWindowManager windowManager = IWindowManager.Stub.asInterface(
                     ServiceManager.getService(Context.WINDOW_SERVICE));
             try {
-                hasSystemBar = windowManager.hasSystemNavBar();
-                if (!windowManager.hasNavigationBar() && !hasSystemBar) {
+                if (!windowManager.hasNavigationBar()) {
                     removeNavbar = true;
                 }
             } catch (RemoteException e) {

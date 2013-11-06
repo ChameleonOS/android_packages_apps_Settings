@@ -22,7 +22,7 @@ import android.app.Fragment;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +46,7 @@ public class AndroidBeam extends Fragment
 
         mActionBarSwitch = new Switch(activity);
 
-        if (activity instanceof PreferenceDrawerActivity) {
+        if (activity instanceof PreferenceActivity) {
             final int padding = activity.getResources().getDimensionPixelSize(
                     R.dimen.action_bar_switch_padding);
             mActionBarSwitch.setPaddingRelative(0, 0, padding, 0);

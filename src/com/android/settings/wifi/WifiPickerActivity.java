@@ -16,6 +16,8 @@
 package com.android.settings.wifi;
 
 import com.android.settings.ButtonBarHandler;
+import com.android.settings.ChooseLockGeneric.ChooseLockGenericFragment;
+import com.android.settings.wifi.p2p.WifiP2pSettings;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -25,7 +27,7 @@ import android.widget.Button;
 
 public class WifiPickerActivity extends PreferenceActivity implements ButtonBarHandler {
 
-    // Same as what are in PreferenceDrawerActivity as private.
+    // Same as what are in PreferenceActivity as private.
     private static final String EXTRA_PREFS_SHOW_BUTTON_BAR = "extra_prefs_show_button_bar";
     private static final String EXTRA_PREFS_SET_NEXT_TEXT = "extra_prefs_set_next_text";
     private static final String EXTRA_PREFS_SET_BACK_TEXT = "extra_prefs_set_back_text";
@@ -42,9 +44,17 @@ public class WifiPickerActivity extends PreferenceActivity implements ButtonBarH
         return modIntent;
     }
 
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        if (WifiSettings.class.getName().equals(fragmentName)
+                || WifiP2pSettings.class.getName().equals(fragmentName)
+                || AdvancedWifiSettings.class.getName().equals(fragmentName)) return true;
+        return false;
+    }
+
     /**
      * Almost dead copy of
-     * {@link PreferenceDrawerActivity#startWithFragment(String, Bundle, Fragment, int)}, except
+     * {@link PreferenceActivity#startWithFragment(String, Bundle, Fragment, int)}, except
      * this has additional codes for button bar handling.
      */
     @Override
@@ -87,13 +97,13 @@ public class WifiPickerActivity extends PreferenceActivity implements ButtonBarH
 
     @Override
     public boolean hasNextButton() {
-        // PreferenceDrawerActivity#hasNextButton() is protected, so we need to expose it here.
+        // PreferenceActivity#hasNextButton() is protected, so we need to expose it here.
         return super.hasNextButton();
     }
 
     @Override
     public Button getNextButton() {
-        // PreferenceDrawerActivity#getNextButton() is protected, so we need to expose it here.
+        // PreferenceActivity#getNextButton() is protected, so we need to expose it here.
         return super.getNextButton();
     }
 }

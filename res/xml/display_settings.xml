@@ -27,6 +27,10 @@
                 android:title="@string/wallpaper_settings_title"
                 android:fragment="com.android.settings.WallpaperTypeSettings" />
 
+        <CheckBoxPreference
+            android:key="accelerometer"
+            android:title="@string/accelerometer_title"/>
+
         <PreferenceScreen
             android:key="display_rotation"
             android:fragment="com.android.settings.chameleonos.DisplayRotation"

@@ -41,7 +41,7 @@ import java.util.regex.Pattern;
 
 import com.android.settings.R;
 
-public class DeviceInfoSettings extends SettingsPreferenceFragment {
+public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
     private static final String LOG_TAG = "DeviceInfoSettings";
 
@@ -82,11 +82,19 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     int mDevHitCountdown;
     Toast mDevHitToast;
 
+    public DeviceInfoSettings() {
+        super(null /* Don't PIN protect the entire screen */);
+    }
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.device_info_settings);
+
+        // We only call ensurePinRestrictedPreference() when mDevHitCountdown == 0.
+        // This will keep us from entering developer mode without a PIN.
+        protectByRestrictions(KEY_BUILD_NUMBER);
 
         setStringSummary(KEY_FIRMWARE_VERSION, Build.VERSION.RELEASE);
         findPreference(KEY_FIRMWARE_VERSION).setEnabled(true);
@@ -217,6 +225,11 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
             if (UserHandle.myUserId() != UserHandle.USER_OWNER) return true;
 
             if (mDevHitCountdown > 0) {
+                if (mDevHitCountdown == 1) {
+                    if (super.ensurePinRestrictedPreference(preference)) {
+                        return true;
+                    }
+                }
                 mDevHitCountdown--;
                 if (mDevHitCountdown == 0) {
                     getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,

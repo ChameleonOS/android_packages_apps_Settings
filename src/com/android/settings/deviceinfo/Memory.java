@@ -19,6 +19,7 @@ package com.android.settings.deviceinfo;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -39,7 +40,7 @@ import android.os.storage.StorageEventListener;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.view.Menu;
@@ -185,8 +186,8 @@ public class Memory extends SettingsPreferenceFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.storage_usb:
-                if (getActivity() instanceof PreferenceDrawerActivity) {
-                    ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(
+                if (getActivity() instanceof PreferenceActivity) {
+                    ((PreferenceActivity) getActivity()).startPreferencePanel(
                             UsbSettings.class.getCanonicalName(),
                             null,
                             R.string.storage_title_usb, null,
@@ -223,7 +224,11 @@ public class Memory extends SettingsPreferenceFragment {
             if (intent != null) {
                 // Don't go across app boundary if monkey is running
                 if (!Utils.isMonkeyRunning()) {
-                    startActivity(intent);
+                    try {
+                        startActivity(intent);
+                    } catch (ActivityNotFoundException anfe) {
+                        Log.w(TAG, "No activity found for intent " + intent);
+                    }
                 }
                 return true;
             }

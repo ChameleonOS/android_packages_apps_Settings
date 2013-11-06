@@ -233,7 +233,8 @@
     <item msgid="6358963769537892925">"Lokalizacja"</item>
     <item msgid="255608127647030286">"Osobiste"</item>
     <item msgid="4588829735729884491">"Wiadomości"</item>
-    <item msgid="8971765125227378270">"Urządzenie"</item>
+    <item msgid="886742181977884584">"Multimedia"</item>
+    <item msgid="7924928667052300589">"Urządzenie"</item>
   </string-array>
   <string-array name="app_ops_summaries">
     <item msgid="4979188868761515915">"przybliżona lokalizacja"</item>
@@ -267,6 +268,18 @@
     <item msgid="5031552983987798163">"odtwórz dźwięk"</item>
     <item msgid="8374996688066472414">"czytaj schowek"</item>
     <item msgid="3045529469061083747">"modyfikuj schowek"</item>
+    <item msgid="5124443975763747838">"przyciski multimediów"</item>
+    <item msgid="4547883971364273343">"aktywność audio"</item>
+    <item msgid="2603878814882344450">"głośność główna"</item>
+    <item msgid="7136963238377062018">"głośność mowy"</item>
+    <item msgid="4270236897655923007">"głośność dzwonka"</item>
+    <item msgid="6325739889222559394">"głośność multimediów"</item>
+    <item msgid="5762123934816216821">"głośność alarmu"</item>
+    <item msgid="785049718065337473">"głośność powiadomień"</item>
+    <item msgid="6700305533746877052">"głośność Bluetooth"</item>
+    <item msgid="2029227495214047094">"utrzymanie aktywności"</item>
+    <item msgid="26109888160231211">"monitorowanie lokalizacji"</item>
+    <item msgid="5753382310468855812">"monitor wysoki zasilanie lokalizacja"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Lokalizacja"</item>
@@ -283,15 +296,15 @@
     <item msgid="2154671955760380322">"Publikowanie powiadomień"</item>
     <item msgid="4282477730595931828">"Lokalizacja"</item>
     <item msgid="4891423912898525905">"Połączenia telefoniczne"</item>
-    <item msgid="626463821668200388">"Odbieranie SMS-ów/MMS-ów"</item>
-    <item msgid="1237538540368797101">"Wysyłanie SMS-ów/MMS-ów"</item>
+    <item msgid="2623604824935968113">"Czytanie SMS-ów/MMS-ów"</item>
+    <item msgid="4420177125221176306">"Pisanie SMS-ów/MMS-ów"</item>
     <item msgid="3986142739951490025">"Odbieranie SMS-ów/MMS-ów"</item>
     <item msgid="3984213795861739778">"Odbieranie SMS-ów/MMS-ów"</item>
     <item msgid="3656243523752472788">"Odbieranie SMS-ów/MMS-ów"</item>
     <item msgid="8105802370238551510">"Odbieranie SMS-ów/MMS-ów"</item>
     <item msgid="1407766984645388488">"Wysyłanie SMS-ów/MMS-ów"</item>
-    <item msgid="1530132603376027248">"Odbieranie SMS-ów/MMS-ów"</item>
-    <item msgid="1188256962149204607">"Wysyłanie SMS-ów/MMS-ów"</item>
+    <item msgid="3527273606643794973">"Czytanie SMS-ów/MMS-ów"</item>
+    <item msgid="4370895547001583812">"Pisanie SMS-ów/MMS-ów"</item>
     <item msgid="4218544235221631789">"Modyfikowanie ustawień"</item>
     <item msgid="736541391767350377">"Rysuj na górze"</item>
     <item msgid="5530815681721654194">"Dostęp do powiadomień"</item>
@@ -300,11 +313,65 @@
     <item msgid="3493046322001257041">"Odtwórz dźwięk"</item>
     <item msgid="136815868796597058">"Czytaj schowek"</item>
     <item msgid="5238692940326972503">"Modyfikuj schowek"</item>
+    <item msgid="5753789168376302997">"Przyciski multimediów"</item>
+    <item msgid="3265262911688671938">"Aktywność audio"</item>
+    <item msgid="2098976479485046797">"Głośność główna"</item>
+    <item msgid="5660213838861789350">"Głośność mowy"</item>
+    <item msgid="7983336752371254444">"Głośność dzwonka"</item>
+    <item msgid="7878027809189330917">"Głośność multimediów"</item>
+    <item msgid="7260546305036218513">"Głośność alarmu"</item>
+    <item msgid="9103719301075748925">"Głośność powiadomień"</item>
+    <item msgid="7025966722295861512">"Głośność Bluetooth"</item>
+    <item msgid="4665183401128289653">"Utrzymanie aktywności"</item>
+    <item msgid="8584357129746649222">"Lokalizacja"</item>
+    <item msgid="7669257279311110599">"Lokalizacja"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Krótkie"</item>
     <item msgid="2560532955514699713">"Średnie"</item>
     <item msgid="2372711992605524591">"Długie"</item>
+  </string-array>
+  <string-array name="captioning_typeface_selector_titles">
+    <item msgid="1319652728542138112">"Domyślna"</item>
+    <item msgid="1016452621833735880">"Bezszeryfowa"</item>
+    <item msgid="2496277987934654454">"Bezszeryfowa wąska"</item>
+    <item msgid="4406003087391086325">"Szeryfowa"</item>
+    <item msgid="1558362802170124073">"Równej szerokości"</item>
+  </string-array>
+  <string-array name="captioning_font_size_selector_titles">
+    <item msgid="4800919809575254054">"Bardzo mały"</item>
+    <item msgid="6781094565687692782">"Mały"</item>
+    <item msgid="8222123259497646551">"Normalny"</item>
+    <item msgid="5813217276778560466">"Duży"</item>
+    <item msgid="9044232017390975191">"Bardzo duży"</item>
+  </string-array>
+  <string-array name="captioning_edge_type_selector_titles">
+    <item msgid="6022616153255438487">"Brak"</item>
+    <item msgid="1352974708028506778">"Obrys"</item>
+    <item msgid="5850876295428722675">"Z cieniem"</item>
+  </string-array>
+  <string-array name="captioning_opacity_selector_titles">
+    <item msgid="7622491218136667566">"25%"</item>
+    <item msgid="2367156416247936773">"50%"</item>
+    <item msgid="5395560410107149298">"75%"</item>
+    <item msgid="8342334626783983353">"100%"</item>
+  </string-array>
+  <string-array name="captioning_preset_selector_titles">
+    <item msgid="1630625150404038035">"Biały na czarnym"</item>
+    <item msgid="4589278788192525675">"Czarny na białym"</item>
+    <item msgid="1309255027325660115">"Żółty na czarnym"</item>
+    <item msgid="2985943780939258562">"Żółty na niebieskim"</item>
+    <item msgid="7520438652121629055">"Niestandardowy"</item>
+  </string-array>
+  <string-array name="select_runtime_titles">
+    <item msgid="3574453009229338122">"Dalvik"</item>
+    <item msgid="8978402910750533864">"ART"</item>
+    <item msgid="7839859333977894115">"ART (debugowanie)"</item>
+  </string-array>
+  <string-array name="select_runtime_summaries">
+    <item msgid="6412880178297884701">"Użyj Dalvik"</item>
+    <item msgid="5131846588686178907">"Użyj ART"</item>
+    <item msgid="4530003713865319928">"Użyj komplikacji debugowania ART"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Nigdy nie sprawdzaj"</item>
@@ -346,9 +413,12 @@
   <string-array name="overlay_display_devices_entries">
     <item msgid="1606809880904982133">"Brak"</item>
     <item msgid="688482401508173818">"720 x 480 mdpi"</item>
-    <item msgid="1725473474827398815">"1280 x 720 tvdpi"</item>
-    <item msgid="6813511923592083251">"1920 x 1080 xhdpi"</item>
-    <item msgid="3646519549495410112">"1280 x 720 tvdpi oraz 1920 x 1080 xhdpi"</item>
+    <item msgid="6027541158956821790">"720 x 480 mdpi (bezpieczny)"</item>
+    <item msgid="8181151155909301030">"1280 x 720 tvdpi"</item>
+    <item msgid="2920655562462493148">"1280 x 720 tvdpi (bezpieczny)"</item>
+    <item msgid="8910371271391940941">"1920 x 1080 xhdpi"</item>
+    <item msgid="4171600481380800455">"1920 x 1080 xhdpi (bezpieczny)"</item>
+    <item msgid="1937752114395156918">"1280 x 720 tvdpi oraz 1920 x 1080 xhdpi"</item>
   </string-array>
   <string-array name="enable_opengl_traces_entries">
     <item msgid="3191973083884253830">"Brak"</item>
@@ -366,6 +436,12 @@
     <item msgid="2751513398307949636">"Na ekranie w postaci pasków"</item>
     <item msgid="8272260411216018353">"Na ekranie w postaci linii"</item>
     <item msgid="120512413928262547">"In adb shell dumpsys gfxinfo"</item>
+  </string-array>
+  <string-array name="debug_hw_overdraw_entries">
+    <item msgid="8190572633763871652">"Wył."</item>
+    <item msgid="7688197031296835369">"Pokaż przerysowywane obszary"</item>
+    <item msgid="2290859360633824369">"Pokaż obszary dostosowane do deuteranomalii"</item>
+    <item msgid="3448087929560624983">"Pokaż licznik przerysowań"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Standardowy limit"</item>
@@ -395,5 +471,11 @@
     <item msgid="7389829271787670252">"Zapytaj"</item>
     <item msgid="5077768429488260031">"Nigdy nie zezwalaj"</item>
     <item msgid="1417929597727989746">"Zawsze zezwalaj"</item>
+  </string-array>
+  <string-array name="ram_states">
+    <item msgid="7088762389498381203">"normalny poziom"</item>
+    <item msgid="4517779899383204000">"średni poziom"</item>
+    <item msgid="406385694840950802">"niski poziom"</item>
+    <item msgid="4212263919458209842">"poziom krytyczny"</item>
   </string-array>
 </resources>

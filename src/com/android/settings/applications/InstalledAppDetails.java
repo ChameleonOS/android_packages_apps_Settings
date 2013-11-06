@@ -58,7 +58,7 @@ import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.format.Formatter;
@@ -67,6 +67,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -144,6 +145,8 @@ public class InstalledAppDetails extends Fragment
     private CompoundButton mThemeCompatibilitySwitch;
 
     private PackageMoveObserver mPackageMoveObserver;
+
+    private final HashSet<String> mHomePackages = new HashSet<String>();
 
     private boolean mDisableAfterUninstall;
 
@@ -244,10 +247,14 @@ public class InstalledAppDetails extends Fragment
     }
     
     private void initDataButtons() {
-        if ((mAppEntry.info.flags&(ApplicationInfo.FLAG_SYSTEM
-                | ApplicationInfo.FLAG_ALLOW_CLEAR_USER_DATA))
-                == ApplicationInfo.FLAG_SYSTEM
-                || mDpm.packageHasActiveAdmins(mPackageInfo.packageName)) {
+        // If the app doesn't have its own space management UI
+        // And it's a system app that doesn't allow clearing user data or is an active admin
+        // Then disable the Clear Data button.
+        if (mAppEntry.info.manageSpaceActivityName == null
+                && ((mAppEntry.info.flags&(ApplicationInfo.FLAG_SYSTEM
+                        | ApplicationInfo.FLAG_ALLOW_CLEAR_USER_DATA))
+                        == ApplicationInfo.FLAG_SYSTEM
+                        || mDpm.packageHasActiveAdmins(mPackageInfo.packageName))) {
             mClearDataButton.setText(R.string.clear_user_data_text);
             mClearDataButton.setEnabled(false);
             mCanClearData = false;
@@ -318,29 +325,20 @@ public class InstalledAppDetails extends Fragment
 
     private boolean handleDisableable(Button button) {
         boolean disableable = false;
-        try {
-            // Try to prevent the user from bricking their phone
-            // by not allowing disabling of apps signed with the
-            // system cert and any launcher app in the system.
-            PackageInfo sys = mPm.getPackageInfo("android",
-                    PackageManager.GET_SIGNATURES);
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setPackage(mAppEntry.info.packageName);
-            List<ResolveInfo> homes = mPm.queryIntentActivities(intent, 0);
-            if ((homes != null && homes.size() > 0) || isThisASystemPackage()) {
-                // Disable button for core system applications.
-                button.setText(R.string.disable_text);
-            } else if (mAppEntry.info.enabled) {
-                button.setText(R.string.disable_text);
-                disableable = true;
-            } else {
-                button.setText(R.string.enable_text);
-                disableable = true;
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.w(TAG, "Unable to get package info", e);
+        // Try to prevent the user from bricking their phone
+        // by not allowing disabling of apps signed with the
+        // system cert and any launcher app in the system.
+        if (mHomePackages.contains(mAppEntry.info.packageName) || isThisASystemPackage()) {
+            // Disable button for core system applications.
+            button.setText(R.string.disable_text);
+        } else if (mAppEntry.info.enabled) {
+            button.setText(R.string.disable_text);
+            disableable = true;
+        } else {
+            button.setText(R.string.enable_text);
+            disableable = true;
         }
+
         return disableable;
     }
 
@@ -656,6 +654,21 @@ public class InstalledAppDetails extends Fragment
         return packageName;
     }
 
+    private boolean signaturesMatch(String pkg1, String pkg2) {
+        if (pkg1 != null && pkg2 != null) {
+            try {
+                final int match = mPm.checkSignatures(pkg1, pkg2);
+                if (match >= PackageManager.SIGNATURE_MATCH) {
+                    return true;
+                }
+            } catch (Exception e) {
+                // e.g. named alternate package not found during lookup;
+                // this is an expected case sometimes
+            }
+        }
+        return false;
+    }
+
     private boolean refreshUi() {
         if (mMoveInProgress) {
             return true;
@@ -668,6 +681,25 @@ public class InstalledAppDetails extends Fragment
 
         if (mPackageInfo == null) {
             return false; // onCreate must have failed, make sure to exit
+        }
+
+        // Get list of "home" apps and trace through any meta-data references
+        List<ResolveInfo> homeActivities = new ArrayList<ResolveInfo>();
+        mPm.getHomeActivities(homeActivities);
+        mHomePackages.clear();
+        for (int i = 0; i< homeActivities.size(); i++) {
+            ResolveInfo ri = homeActivities.get(i);
+            final String activityPkg = ri.activityInfo.packageName;
+            mHomePackages.add(activityPkg);
+
+            // Also make sure to include anything proxying for the home app
+            final Bundle metadata = ri.activityInfo.metaData;
+            if (metadata != null) {
+                final String metaPkg = metadata.getString(ActivityManager.META_HOME_ALTERNATE);
+                if (signaturesMatch(metaPkg, activityPkg)) {
+                    mHomePackages.add(metaPkg);
+                }
+            }
         }
 
         // Get list of preferred activities
@@ -910,8 +942,8 @@ public class InstalledAppDetails extends Fragment
         if(localLOGV) Log.i(TAG, "appChanged="+appChanged);
         Intent intent = new Intent();
         intent.putExtra(ManageApplications.APP_CHG, appChanged);
-        if (getActivity() instanceof PreferenceDrawerActivity) {
-            PreferenceDrawerActivity pa = (PreferenceDrawerActivity)getActivity();
+        if (getActivity() instanceof PreferenceActivity) {
+            PreferenceActivity pa = (PreferenceActivity)getActivity();
             pa.finishPreferencePanel(this, Activity.RESULT_OK, intent);
         } else {
             PreferenceActivity pa = (PreferenceActivity)getActivity();
@@ -1261,8 +1293,8 @@ public class InstalledAppDetails extends Fragment
             intent.putExtra(Intent.EXTRA_PACKAGES, new String[] { mAppEntry.info.packageName });
             intent.putExtra(Intent.EXTRA_UID, mAppEntry.info.uid);
             intent.putExtra(Intent.EXTRA_USER_HANDLE, UserHandle.getUserId(mAppEntry.info.uid));
-            getActivity().sendOrderedBroadcast(intent, null, mCheckKillProcessesReceiver, null,
-                    Activity.RESULT_CANCELED, null, null);
+            getActivity().sendOrderedBroadcastAsUser(intent, UserHandle.CURRENT, null,
+                    mCheckKillProcessesReceiver, null, Activity.RESULT_CANCELED, null, null);
         }
     }
 

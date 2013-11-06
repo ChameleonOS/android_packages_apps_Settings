@@ -30,6 +30,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.hardware.display.DisplayManager;
+import android.hardware.display.WifiDisplay;
 import android.hardware.display.WifiDisplayStatus;
 import android.os.Bundle;
 import android.os.Handler;
@@ -41,10 +42,13 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
+import android.util.AttributeSet;
 import android.util.Log;
 
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.chameleonos.DisplayRotation;
+import com.android.settings.DreamSettings;
 
 import java.util.ArrayList;
 
@@ -56,6 +60,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
+    private static final String KEY_ACCELEROMETER = "accelerometer";
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
@@ -76,6 +81,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private DisplayManager mDisplayManager;
 
+    private CheckBoxPreference mAccelerometer;
     private CheckBoxPreference mVolumeWake;
     private PreferenceScreen mDisplayRotationPreference;
     private WarnedListPreference mFontSizePref;
@@ -120,6 +126,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             if (!res.getBoolean(com.android.internal.R.bool.config_enableLockScreenRotation)) {
                 getPreferenceScreen().removePreference(lockScreenRotation);
             }
+        }
+
+        mAccelerometer = (CheckBoxPreference) findPreference(KEY_ACCELEROMETER);
+        mAccelerometer.setPersistent(false);
+        if (!RotationPolicy.isRotationSupported(getActivity())
+                || RotationPolicy.isRotationLockToggleSupported(getActivity())) {
+            // If rotation lock is supported, then we do not provide this option in
+            // Display settings.  However, is still available in Accessibility settings,
+            // if the device supports rotation.
+            getPreferenceScreen().removePreference(mAccelerometer);
         }
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
@@ -256,13 +272,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         if (revisedEntries.size() != entries.length || revisedValues.size() != values.length) {
+            final int userPreference = Integer.parseInt(screenTimeoutPreference.getValue());
             screenTimeoutPreference.setEntries(
                     revisedEntries.toArray(new CharSequence[revisedEntries.size()]));
             screenTimeoutPreference.setEntryValues(
                     revisedValues.toArray(new CharSequence[revisedValues.size()]));
-            final int userPreference = Integer.parseInt(screenTimeoutPreference.getValue());
             if (userPreference <= maxTimeout) {
                 screenTimeoutPreference.setValue(String.valueOf(userPreference));
+            } else if (revisedValues.size() > 0
+                    && Long.parseLong(revisedValues.get(revisedValues.size() - 1).toString())
+                    == maxTimeout) {
+                // If the last one happens to be the same as the max timeout, select that
+                screenTimeoutPreference.setValue(String.valueOf(maxTimeout));
             } else {
                 // There will be no highlighted selection since nothing in the list matches
                 // maxTimeout. The user can still select anything less than maxTimeout.
@@ -384,6 +405,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    private void updateAccelerometerRotationCheckbox() {
+        if (getActivity() == null) return;
+
+        mAccelerometer.setChecked(!RotationPolicy.isRotationLocked(getActivity()));
+    }
+
     public void writeFontSizePreference(Object objValue) {
         try {
             mCurConfig.fontScale = Float.parseFloat(objValue.toString());
@@ -395,7 +422,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mVolumeWake) {
+        if (preference == mAccelerometer) {
+            RotationPolicy.setRotationLockForAccessibility(
+                    getActivity(), !mAccelerometer.isChecked());
+        } else if (preference == mVolumeWake) {
             Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
                     mVolumeWake.isChecked() ? 1 : 0);
             return true;
