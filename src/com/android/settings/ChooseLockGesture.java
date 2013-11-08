@@ -68,6 +68,12 @@ public class ChooseLockGesture extends PreferenceActivity {
     }
 
     @Override
+    protected boolean isValidFragment(String fragmentName) {
+        if (ChooseLockGestureFragment.class.getName().equals(fragmentName)) return true;
+        return false;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CharSequence msg = getText(R.string.lockpassword_choose_your_gesture_header);

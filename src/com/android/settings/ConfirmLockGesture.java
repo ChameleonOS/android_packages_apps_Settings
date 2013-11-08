@@ -77,6 +77,12 @@ public class ConfirmLockGesture extends PreferenceActivity {
         return modIntent;
     }
 
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        if (ConfirmLockGestureFragment.class.getName().equals(fragmentName)) return true;
+        return false;
+    }
+
     public static class ConfirmLockGestureFragment extends Fragment {
 
         // how long we wait to clear a wrong gesture

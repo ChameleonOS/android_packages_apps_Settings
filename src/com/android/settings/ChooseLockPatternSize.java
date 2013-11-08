@@ -34,6 +34,12 @@ public class ChooseLockPatternSize extends PreferenceActivity {
         return modIntent;
     }
 
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        if (ChooseLockPatternSizeFragment.class.getName().equals(fragmentName)) return true;
+        return false;
+    }
+
     public static class ChooseLockPatternSizeFragment extends SettingsPreferenceFragment {
         private ChooseLockSettingsHelper mChooseLockSettingsHelper;
 
