@@ -654,4 +654,14 @@
         <item>1</item>
     </string-array>
 
+
+    <!-- Nav ring targets -->
+    <array name="lockscreen_targets_unlock_only">
+        <item>@*android:drawable/ic_lockscreen_unlock</item>
+    </array>
+
+    <array name="lockscreen_target_descriptions_unlock_only">
+        <item>@*android:string/description_target_unlock</item>
+    </array>
+
 </resources>
