@@ -407,7 +407,7 @@
     <string name="power_menu_reboot_title">Uudelleenkäynnistys</string>
     <string name="power_menu_screenshot_title">Kuvakaappaus</string>
     <string name="power_menu_profiles_title">Profiilit</string>
-    <string name="power_menu_expanded_desktop">Laajennettu työpöytä</string>
+    <string name="power_menu_immersive_mode">Laajennettu työpöytä</string>
     <string name="power_menu_airplane_title">Lentokonetila</string>
     <string name="power_menu_sound_title">Äänipaneeli</string>
     <string name="power_menu_user_title">Käyttäjät</string>

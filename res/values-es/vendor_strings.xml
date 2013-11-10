@@ -419,10 +419,10 @@
     <string name="power_menu_title">Menú de apagado</string>
     <string name="power_menu_reboot_title">Reiniciar</string>
     <string name="power_menu_screenshot_title">Capturar pantalla</string>
-    <string name="power_menu_expanded_desktop">Extender escritorio</string>
-    <string name="expanded_desktop_disabled">Desactivado</string>
-    <string name="expanded_desktop_status_bar">Con barra de estado</string>
-    <string name="expanded_desktop_no_status_bar">Sin barra de estado</string>
+    <string name="power_menu_immersive_mode">Extender escritorio</string>
+    <string name="immersive_mode_disabled">Desactivado</string>
+    <string name="immersive_mode_status_bar">Con barra de estado</string>
+    <string name="immersive_mode_no_status_bar">Sin barra de estado</string>
     <string name="power_menu_profiles_title">Perfiles</string>
     <string name="power_menu_airplane_title">Modo avión</string>
     <string name="power_menu_user_title">Cambiar de usuario</string>

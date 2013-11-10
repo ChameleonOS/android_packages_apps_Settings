@@ -546,7 +546,7 @@
     <string name="power_menu_title">电源菜单选项</string>
     <string name="power_menu_reboot_title">重启菜单</string>
     <string name="power_menu_screenshot_title">屏幕截图</string>
-    <string name="power_menu_expanded_desktop">扩展桌面</string>
+    <string name="power_menu_immersive_mode">扩展桌面</string>
     <string name="power_menu_profiles_title">情景模式</string>
     <string name="power_menu_airplane_title">飞行模式</string>
     <string name="power_menu_user_title">用户切换器</string>

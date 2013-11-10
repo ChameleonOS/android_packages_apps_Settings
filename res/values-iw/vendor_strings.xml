@@ -545,7 +545,7 @@
     <string name="power_menu_title">תפריט כיבוי</string>
     <string name="power_menu_reboot_title">הפעלה מחדש</string>
     <string name="power_menu_screenshot_title">צילום מסך</string>
-    <string name="power_menu_expanded_desktop">שולחן עבודה מורחב</string>
+    <string name="power_menu_immersive_mode">שולחן עבודה מורחב</string>
     <string name="power_menu_profiles_title">החלפת פרופיל</string>
     <string name="power_menu_airplane_title">מצב טיסה</string>
     <string name="power_menu_user_title">החלפת משתמש</string>

@@ -547,7 +547,7 @@
     <string name="power_menu_title">Menu tasto accensione</string>
     <string name="power_menu_reboot_title">Menu riavvio</string>
     <string name="power_menu_screenshot_title">Cattura schermata</string>
-    <string name="power_menu_expanded_desktop">Desktop espanso</string>
+    <string name="power_menu_immersive_mode">Desktop espanso</string>
     <string name="power_menu_profiles_title">Selettore profilo</string>
     <string name="power_menu_airplane_title">Modalità aereo</string>
     <string name="power_menu_user_title">Cambia utente</string>

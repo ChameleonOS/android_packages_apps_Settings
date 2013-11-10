@@ -429,7 +429,7 @@ Let op:\nAangezien het beginvolume hoger is ingesteld dan het beltoonvolume, wor
     <string name="power_menu_title">Aan/uit-knop</string>
     <string name="power_menu_reboot_title">Herstarten</string>
     <string name="power_menu_screenshot_title">Schermafdruk</string>
-    <string name="power_menu_expanded_desktop">Uitgebreid bureaublad</string>
+    <string name="power_menu_immersive_mode">Uitgebreid bureaublad</string>
     <string name="power_menu_profiles_title">Profielen</string>
     <string name="power_menu_airplane_title">Vliegtuigmodus</string>
     <string name="power_menu_user_title">Gebruiker wisselen</string>

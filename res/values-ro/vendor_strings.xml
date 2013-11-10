@@ -449,7 +449,7 @@
     <string name="power_menu_title">"Meniul Power"</string>
     <string name="power_menu_reboot_title">"Meniul Repornire"</string>
     <string name="power_menu_screenshot_title">"Screenshot"</string>
-    <string name="power_menu_expanded_desktop">"Desktop extins"</string>
+    <string name="power_menu_immersive_mode">"Desktop extins"</string>
     <string name="power_menu_profiles_title">"Schimbare profil"</string>
     <string name="power_menu_airplane_title">"Mod avion"</string>
     <string name="power_menu_user_title">"Comutare utilizator"</string>

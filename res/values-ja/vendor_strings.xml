@@ -622,7 +622,7 @@
     <string name="power_menu_title">電源ボタンメニュー</string>
     <string name="power_menu_reboot_title">再起動メニュー</string>
     <string name="power_menu_screenshot_title">スクリーンショット</string>
-    <string name="power_menu_expanded_desktop">拡張デスクトップ</string>
+    <string name="power_menu_immersive_mode">拡張デスクトップ</string>
     <string name="power_menu_profiles_title">プロファイル切り替え</string>
     <string name="power_menu_airplane_title">機内モード</string>
     <string name="power_menu_user_title">ユーザー切り替え</string>

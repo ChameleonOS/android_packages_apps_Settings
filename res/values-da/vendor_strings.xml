@@ -533,7 +533,7 @@
     <string name="power_menu_title">Tænd/sluk-menu</string>
     <string name="power_menu_reboot_title">Genstartsmenu</string>
     <string name="power_menu_screenshot_title">Skærmbillede</string>
-    <string name="power_menu_expanded_desktop">Udvidet skrivebord</string>
+    <string name="power_menu_immersive_mode">Udvidet skrivebord</string>
     <string name="power_menu_profiles_title">Profilskifter</string>
     <string name="power_menu_airplane_title">Flytilstand</string>
     <string name="power_menu_user_title">Brugerskifter</string>
