@@ -29,6 +29,11 @@
         android:title="@string/power_menu_screenshot_title"
         android:defaultValue="false" />
 
+    <CheckBoxPreference
+        android:key="power_menu_screenrecord"
+        android:title="@string/power_menu_screenrecord_title"
+        android:defaultValue="false" />
+
     <ListPreference
         android:key="power_menu_immersive_mode"
         android:title="@string/power_menu_immersive_mode"

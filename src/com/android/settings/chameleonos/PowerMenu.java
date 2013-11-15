@@ -36,6 +36,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
     private static final String KEY_REBOOT = "power_menu_reboot";
     private static final String KEY_SCREENSHOT = "power_menu_screenshot";
+    private static final String KEY_SCREENRECORD = "power_menu_screenrecord";
     private static final String KEY_IMMERSIVE_MODE = "power_menu_immersive_mode";
     private static final String KEY_PROFILES = "power_menu_profiles";
     private static final String KEY_AIRPLANE = "power_menu_airplane";
@@ -44,6 +45,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
     private CheckBoxPreference mRebootPref;
     private CheckBoxPreference mScreenshotPref;
+    private CheckBoxPreference mScreenrecordPref;
     ListPreference mImmersiveModePref;
     private CheckBoxPreference mProfilesPref;
     private CheckBoxPreference mAirplanePref;
@@ -59,6 +61,10 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mRebootPref = (CheckBoxPreference) findPreference(KEY_REBOOT);
         mRebootPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_REBOOT_ENABLED, 1) == 1));
+
+        mScreenrecordPref = (CheckBoxPreference) findPreference(KEY_SCREENRECORD);
+        mScreenrecordPref.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.POWER_MENU_SCREENRECORD_ENABLED, 0) == 1));
 
         mScreenshotPref = (CheckBoxPreference) findPreference(KEY_SCREENSHOT);
         mScreenshotPref.setChecked((Settings.System.getInt(getContentResolver(),
@@ -118,6 +124,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
             value = mScreenshotPref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.POWER_MENU_SCREENSHOT_ENABLED,
+                    value ? 1 : 0);
+        } else if (preference == mScreenrecordPref) {
+            value = mScreenrecordPref.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.POWER_MENU_SCREENRECORD_ENABLED,
                     value ? 1 : 0);
         } else if (preference == mRebootPref) {
             value = mRebootPref.isChecked();
