@@ -546,7 +546,6 @@
     <string name="pref_flash_mode_title">Taschenlampe</string>
     <string name="expanded_haptic_feedback_title">Haptisches Feedback</string>
     <string name="settings_toggle_position_divider_list">12 toggles placed above this line are active</string>
-    <string name="toggles_style_title">Schalter Layout-Stil</string>
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">App beenden</string>

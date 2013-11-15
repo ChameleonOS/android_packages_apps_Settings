@@ -203,9 +203,6 @@
     <string name="system_settings_title">System</string>
     <string name="system_interface_title">System interface</string>
 
-    <!-- Status bar toggles  -->
-    <string name="notification_drawer_title">Status bar toggles</string>
-
     <string name="lock_screen_title">Lock screen</string>
 
     <!-- Lock Screen Shortcuts -->
@@ -615,59 +612,6 @@
     <string name="navigation_bar_reset_toast">Navigation bar reset to default</string>
     <string name="navigation_bar_menu_editable">Editable</string>
     <string name="navigation_bar_menu_locked">Locked</string>
-
-    <!-- Power Widget  -->
-    <string name="power_widget_title">Status bar toggles</string>
-    <string name="title_expanded_widget">Status bar toggles</string>
-    <string name="power_widget_behavior">Behavior</string>
-    <string name="title_expanded_hide_oncollapse">Collapse volumes</string>
-    <string name="summary_expanded_hide_oncollapse">Collapse the volume panel when notifcation panel is closed</string>
-    <string name="title_expanded_hide_onchange">Close drawer on change</string>
-    <string name="title_expanded_hide_indicator">Hide indicators</string>
-    <string name="title_expanded_hide_scrollbar">Hide scrollbar</string>
-    <string name="title_widget_picker">Widget buttons</string>
-    <string name="summary_widget_picker">View or change the displayed buttons</string>
-    <string name="title_widget_order">Customize toggles position</string>
-    <string name="summary_widget_order">View or change the order of the buttons</string>
-    <string name="title_buttons">Buttons</string>
-    <string name="title_toggle_wifi">Toggle Wi-Fi</string>
-    <string name="title_toggle_bluetooth">Toggle Bluetooth</string>
-    <string name="title_toggle_gps">Toggle GPS</string>
-    <string name="title_toggle_sound">Toggle Sound</string>
-    <string name="title_toggle_brightness">Toggle Brightness</string>
-    <string name="title_toggle_sync">Toggle Sync</string>
-    <string name="title_toggle_wifiap">Toggle Wi-Fi AP</string>
-    <string name="title_toggle_screentimeout">Toggle Screen timeout</string>
-    <string name="title_toggle_mobiledata">Toggle Mobile data</string>
-    <string name="title_toggle_lockscreen">Toggle Lock screen</string>
-    <string name="title_toggle_networkmode">Toggle network mode</string>
-    <string name="title_toggle_autorotate">Toggle Orientation</string>
-    <string name="title_toggle_airplane">Toggle Airplane mode</string>
-    <string name="title_toggle_flashlight">Toggle LED flashlight</string>
-    <string name="title_toggle_sleep">Go to sleep</string>
-    <string name="title_toggle_media_play_pause">Media: Toggle Play/Pause</string>
-    <string name="title_toggle_media_previous">Media: Skip to Previous</string>
-    <string name="title_toggle_media_next">Media: Skip to Next</string>
-    <string name="title_toggle_lte">Toggle LTE</string>
-    <string name="title_toggle_wimax">Toggle WiMAX</string>
-    <string name="title_toggle_media_scan">Media scanner</string>
-    <string name="title_button_modes">Button modes</string>
-    <string name="pref_brightness_mode_title">Brightness modes</string>
-    <string name="pref_brightness_mode_summary">View or change the Brightness button modes</string>
-    <string name="cm_brightness_mode_auto">Auto</string>
-    <string name="cm_brightness_mode_dim">Dim</string>
-    <string name="pref_network_mode_title">Network modes</string>
-    <string name="pref_screentimeout_mode_title">Screen timeout modes</string>
-    <string name="pref_ring_mode_title">Sound modes</string>
-    <string name="pref_ring_mode_summary">View or change the Sound button modes</string>
-    <string name="cm_sound_mode_silent">Silent</string>
-    <string name="cm_sound_mode_vibrate">Vibrate</string>
-    <string name="cm_sound_mode_sound">Sound</string>
-    <string name="cm_sound_mode_soundVibrate">Sound + Vibrate</string>
-    <string name="pref_flash_mode_title">Flash mode</string>
-    <string name="expanded_haptic_feedback_title">Haptic feedback</string>
-    <string name="settings_toggle_position_divider_list">12 toggles placed above this line are active</string>
-    <string name="toggles_style_title">Toggle layout style</string>
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>
