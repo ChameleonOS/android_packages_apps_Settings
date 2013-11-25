@@ -573,10 +573,6 @@
     <string name="status_bar_notif_count_title">Vis meddelelsestæller</string>
     <string name="status_bar_notif_count_summary">Vis antallet af uafsluttede meddelelser</string>
 
-    <!-- Wakeup options -->
-    <string name="display_category_wakeup_options_title">Vække-indstillinger</string>
-    <string name="pref_volume_wake_title">Vække med lydstyrkeknap</string>
-    <string name="pref_volume_wake_summary">Ved at trykke på lydstyrkeknappen op/ned, vil vække enheden</string>
 
     <!-- Setting checkbox summary for displaying USB debugging notification -->
     <string name="adb_notify">Meddelelse for USB-fejlretning</string>

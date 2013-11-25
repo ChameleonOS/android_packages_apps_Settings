@@ -37,7 +37,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SystemSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class SystemSettings extends SettingsPreferenceFragment {
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
@@ -49,12 +49,10 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
-    private static final String KEY_UI_DISPLAY = "ui_display";
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
     private boolean mIsPrimary;
-    private ListPreference mUIDisplay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,13 +60,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
 
         addPreferencesFromResource(R.xml.system_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
-
-        mUIDisplay = (ListPreference) findPreference(KEY_UI_DISPLAY);
-        int uiDisplay = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.UI_DISPLAY_STATE, 2);
-        mUIDisplay.setValue(String.valueOf(uiDisplay));
-        mUIDisplay.setSummary(mUIDisplay.getEntry());
-        mUIDisplay.setOnPreferenceChangeListener(this);
 
         // Determine which user is logged in
         mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
@@ -99,7 +90,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
             }
 
             // Act on the above
-            if (removeNavbar && (uiDisplay != 2)) {
+            if (removeNavbar) {
                 prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
                 prefScreen.removePreference(findPreference(KEY_NAVIGATION_RING));
                 prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_CATEGORY));
@@ -128,18 +119,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
 
         // Don't display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mUIDisplay) {
-            int uiDisplay = Integer.valueOf((String) newValue);
-            int index = mUIDisplay.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.UI_DISPLAY_STATE, uiDisplay);
-            mUIDisplay.setSummary(mUIDisplay.getEntries()[index]);
-            return true;
-        }
-        return false;
     }
 
     private void updateLightPulseDescription() {

@@ -451,9 +451,6 @@
     <string name="status_bar_battery_status_circle_percentage">Circular con porcentaje</string>
     <string name="status_bar_notif_count_title">Mostrar contador notificaciones</string>
     <string name="status_bar_notif_count_summary">Mostrar el número de notificaciones pendientes en la barra de estado</string>
-    <string name="display_category_wakeup_options_title">Opciones de reanudación</string>
-    <string name="pref_volume_wake_title">Controles de volumen</string>
-    <string name="pref_volume_wake_summary">Presionando los botones de control de volumen el dispositivo saldrá del modo en espera</string>
     <string name="adb_notify">Notificar depuración USB</string>
     <string name="adb_notify_summary">Mostrar una notificación cuando el modo de depuración USB esté conectado</string>
     <string name="development_tools_title">Iniciar Herramientas</string>

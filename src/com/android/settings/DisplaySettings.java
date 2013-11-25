@@ -60,14 +60,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
-    private static final String KEY_ACCELEROMETER = "accelerometer";
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
-    private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
-    private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
 
     // Strings used for building the summary
     private static final String ROTATION_ANGLE_0 = "0";
@@ -81,8 +78,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private DisplayManager mDisplayManager;
 
-    private CheckBoxPreference mAccelerometer;
-    private CheckBoxPreference mVolumeWake;
     private PreferenceScreen mDisplayRotationPreference;
     private WarnedListPreference mFontSizePref;
 
@@ -93,14 +88,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private WifiDisplayStatus mWifiDisplayStatus;
     private Preference mWifiDisplayPreference;
-
-    private ContentObserver mAccelerometerRotationObserver =
-            new ContentObserver(new Handler()) {
-        @Override
-        public void onChange(boolean selfChange) {
-            updateDisplayRotationPreferenceDescription();
-        }
-    };
 
     private final RotationPolicy.RotationPolicyListener mRotationPolicyListener =
             new RotationPolicy.RotationPolicyListener() {
@@ -128,14 +115,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
 
-        mAccelerometer = (CheckBoxPreference) findPreference(KEY_ACCELEROMETER);
-        mAccelerometer.setPersistent(false);
         if (!RotationPolicy.isRotationSupported(getActivity())
                 || RotationPolicy.isRotationLockToggleSupported(getActivity())) {
             // If rotation lock is supported, then we do not provide this option in
             // Display settings.  However, is still available in Accessibility settings,
             // if the device supports rotation.
-            getPreferenceScreen().removePreference(mAccelerometer);
+            getPreferenceScreen().removePreference(mDisplayRotationPreference);
         }
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
@@ -166,17 +151,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 == WifiDisplayStatus.FEATURE_STATE_UNAVAILABLE) {
             getPreferenceScreen().removePreference(mWifiDisplayPreference);
             mWifiDisplayPreference = null;
-        }
-
-        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
-        if (mVolumeWake != null) {
-            if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)) {
-                getPreferenceScreen().removePreference(mVolumeWake);
-                getPreferenceScreen().removePreference((PreferenceCategory) findPreference(KEY_WAKEUP_CATEGORY));
-            } else {
-                mVolumeWake.setChecked(Settings.System.getInt(resolver,
-                        Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
-            }
         }
 
     }
@@ -332,11 +306,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         RotationPolicy.registerRotationPolicyListener(getActivity(),
                 mRotationPolicyListener);
 
-        // Display rotation observer
-        getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
-                mAccelerometerRotationObserver);
-
         if (mWifiDisplayPreference != null) {
             getActivity().registerReceiver(mReceiver, new IntentFilter(
                     DisplayManager.ACTION_WIFI_DISPLAY_STATUS_CHANGED));
@@ -352,9 +321,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         RotationPolicy.unregisterRotationPolicyListener(getActivity(),
                 mRotationPolicyListener);
-
-        // Display rotation observer
-        getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
 
         if (mWifiDisplayPreference != null) {
             getActivity().unregisterReceiver(mReceiver);
@@ -405,12 +371,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateAccelerometerRotationCheckbox() {
-        if (getActivity() == null) return;
-
-        mAccelerometer.setChecked(!RotationPolicy.isRotationLocked(getActivity()));
-    }
-
     public void writeFontSizePreference(Object objValue) {
         try {
             mCurConfig.fontScale = Float.parseFloat(objValue.toString());
@@ -418,20 +378,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } catch (RemoteException e) {
             Log.w(TAG, "Unable to save font size");
         }
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mAccelerometer) {
-            RotationPolicy.setRotationLockForAccessibility(
-                    getActivity(), !mAccelerometer.isChecked());
-        } else if (preference == mVolumeWake) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
-                    mVolumeWake.isChecked() ? 1 : 0);
-            return true;
-        }
-
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {

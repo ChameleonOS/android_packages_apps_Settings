@@ -585,10 +585,6 @@
     <string name="status_bar_notif_count_title">הצג מונה התראות</string>
     <string name="status_bar_notif_count_summary">הצג את מספר ההתראות הממתינות בכל יישום</string>
 
-    <!-- Wakeup options -->
-    <string name="display_category_wakeup_options_title">אפשרויות התעוררות</string>
-    <string name="pref_volume_wake_title">התעוררות באמצעות מקשי הקול</string>
-    <string name="pref_volume_wake_summary">לחיצה על מקשי הקול למעלה/למטה תעיר את המכשיר</string>
 
     <!-- Setting checkbox summary for displaying USB debugging notification -->
     <string name="adb_notify">התראת ניקוי באגים</string>

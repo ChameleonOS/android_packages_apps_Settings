@@ -435,9 +435,6 @@
     <string name="status_bar_battery_status_circle_percentage">Ympyrä ja prosentti</string>
     <string name="status_bar_notif_count_title">Näytä ilmoitusten määrä</string>
     <string name="status_bar_notif_count_summary">Näyttää ilmoitusten määrän</string>
-    <string name="display_category_wakeup_options_title">Heräämisen asetukset</string>
-    <string name="pref_volume_wake_title">Äänenvoimakkuuspainikkeen herätys</string>
-    <string name="pref_volume_wake_summary">Äänenvoimakkuuspainiketta painamalla laite herää</string>
     <string name="adb_notify">USB-viankorjausilmoitus</string>
     <string name="adb_notify_summary">Näytä ilmoitus kun USB-virheenkorjaus on käytössä</string>
     <string name="development_tools_title">Avaa kehitystyökalut</string>

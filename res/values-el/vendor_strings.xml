@@ -601,10 +601,6 @@
     <string name="status_bar_notif_count_title">Εμφ. αριθμού ειδοποιήσεων</string>
     <string name="status_bar_notif_count_summary">Εμφάνιση του αριθμού των ειδοποιήσεων που εκκρεμούν στη μπάρα κατάστασης</string>
 
-    <!-- Wakeup options -->
-    <string name="display_category_wakeup_options_title">Επιλογές αφύπνισης</string>
-    <string name="pref_volume_wake_title">Αφύπνιση με πληκ. έντασης</string>
-    <string name="pref_volume_wake_summary">Αφύπνιση της συσκευής κατά το πάτημα των πλήκτρων έντασης</string>
 
     <!-- Setting checkbox summary for displaying USB debugging notification -->
     <string name="adb_notify">Ειδοποίηση εντοπισμού σφαλμάτων USB</string>

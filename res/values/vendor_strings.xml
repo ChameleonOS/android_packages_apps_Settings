@@ -710,10 +710,6 @@
     <string name="show_status_bar_on_notification_title">Show on notification</string>
     <string name="show_status_bar_on_notification_summary">Display the status bar when a notification arrives and status bar is hidden.</string>
 
-    <!-- Wakeup options -->
-    <string name="display_category_wakeup_options_title">Wakeup options</string>
-    <string name="pref_volume_wake_title">Volume rocker wake</string>
-    <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
 
     <!-- Setting checkbox summary for displaying USB debugging notification -->
     <string name="adb_notify">USB debugging notify</string>
@@ -945,13 +941,6 @@
     <string name="navring_action_torch">Toggle torch</string>
     <string name="navring_action_google_now">Google Now</string>
     <string name="navring_choose_action_title">Choose action</string>
-
-    <!-- Experimental category title -->
-    <string name="experimental_category">Experimental</string>
-    <!-- Display UI title -->
-    <string name="ui_display_title">Display UI</string>
-    <!-- System settings screen, setting option summary to change display ui -->
-    <string name="ui_display_summary"><xliff:g id="ui_display_description">%1$s</xliff:g> will be shown</string>
 
     <!-- Stylus Gestures -->
     <string name="gestures_settings_title">Stylus gestures</string>

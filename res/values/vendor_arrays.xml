@@ -595,24 +595,6 @@
         <item>1005</item>
     </string-array>
 
-    <!-- System settings.  The UI display type to use - what the display layout is like.  These are shown in a list dialog. -->
-    <string-array name="ui_display_entries">
-        <item>Phablet UI</item>
-        <item>Phone UI</item>
-        <item>Tablet UI</item>
-    </string-array>
-
-    <!-- Match with ui_display_entries. -->
-    <!-- Do not translate. -->
-    <string-array name="ui_display_values">
-        <!-- Do not translate. -->
-        <item>1</item>
-        <!-- Do not translate. -->
-        <item>2</item>
-        <!-- Do not translate. -->
-        <item>3</item>
-    </string-array>
-
     <!-- Custom lock screen wallpaper-->
     <string-array name="lockscreen_wallpaper_entries" translatable="false">
         <item>@string/lockscreen_wallpaper_custom</item>

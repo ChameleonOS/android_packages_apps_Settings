@@ -484,9 +484,6 @@
     <string name="status_bar_notif_count_title">"Arătați numărul de notificări"</string>
     <string name="status_bar_notif_count_summary">"Arătaţi numărul de notificări în aşteptare"</string>
 
-    <string name="display_category_wakeup_options_title">"Opţiuni trezire"</string>
-    <string name="pref_volume_wake_title">"Trezire cu butoanele de volum"</string>
-    <string name="pref_volume_wake_summary">"Apăsând butoanele de volum sus/jos veţi trezi dispozitivul"</string>
 
     <string name="adb_notify">"Notificare Depanare USB"</string>
     <string name="adb_notify_summary">"Arătați o notificare atunci când depanarea USB este conectată"</string>

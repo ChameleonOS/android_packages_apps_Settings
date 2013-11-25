@@ -638,10 +638,6 @@
     <string name="status_bar_notif_count_title">Benachrichtigungs-Zähler</string>
     <string name="status_bar_notif_count_summary">Anzahl der anstehenden Benachrichtigungen in der Statusleiste anzeigen</string>
 
-    <!-- Wakeup options -->
-    <string name="display_category_wakeup_options_title">Aufwecken</string>
-    <string name="pref_volume_wake_title">Lautstärketaste</string>
-    <string name="pref_volume_wake_summary">Lautstärketasten wecken das Gerät und aktivieren den Bildschirm</string>
 
     <!-- Setting checkbox title for root access -->
     <string name="root_access">Root-Zugriff</string>

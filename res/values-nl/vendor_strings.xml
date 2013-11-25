@@ -458,9 +458,6 @@ Let op:\nAangezien het beginvolume hoger is ingesteld dan het beltoonvolume, wor
     <string name="status_bar_battery_status_circle_percentage">Cirkel met percentage</string>
     <string name="status_bar_notif_count_title">Aantal meldingen tonen</string>
     <string name="status_bar_notif_count_summary">Aantal nieuwe meldingen tonen</string>
-    <string name="display_category_wakeup_options_title">Ontwaakinstellingen</string>
-    <string name="pref_volume_wake_title">Ontwaken met volumeknoppen</string>
-    <string name="pref_volume_wake_summary">Apparaat laten ontwaken als een volumeknop wordt ingedrukt</string>
     <string name="adb_notify">USB-foutopsporingsmodus melden</string>
     <string name="adb_notify_summary">Melding tonen indien USB-foutopsporingmodus is ingeschakeld</string>
     <string name="development_tools_title">Tools openen</string>

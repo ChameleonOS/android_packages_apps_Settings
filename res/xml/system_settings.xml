@@ -77,17 +77,4 @@
             android:title="@string/navigation_ring_title" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="experimental_category"
-        android:title="@string/experimental_category" >
-
-       <ListPreference
-            android:key="ui_display"
-            android:title="@string/ui_display_title"
-            android:summary="@string/ui_display_summary"
-            android:persistent="false"
-            android:entries="@array/ui_display_entries"
-            android:entryValues="@array/ui_display_values" />
-    </PreferenceCategory>
-
 </PreferenceScreen>

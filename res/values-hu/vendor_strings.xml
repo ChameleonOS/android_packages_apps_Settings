@@ -597,10 +597,6 @@
     <string name="status_bar_notif_count_title">Értesítések száma</string>
     <string name="status_bar_notif_count_summary">Folyamatban lévő értesítések számának megjelenítése az értesítési sávon</string>
 
-    <!-- Wakeup options -->
-    <string name="display_category_wakeup_options_title">Ébredés beállítások</string>
-    <string name="pref_volume_wake_title">Hangerő gombra ébredés</string>
-    <string name="pref_volume_wake_summary">A hangerő gomb fel/le megnyomására felébred a készülék</string>
 
     <!-- Setting checkbox summary for displaying USB debugging notification -->
     <string name="adb_notify">USB hibakeresés értesítései</string>

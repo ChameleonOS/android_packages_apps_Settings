@@ -580,10 +580,6 @@
     <string name="status_bar_notif_count_title">Счётчик уведомлений</string>
     <string name="status_bar_notif_count_summary">Показывать количество новых уведомлений в строке состояния</string>
 
-    <!-- Wakeup options -->
-    <string name="display_category_wakeup_options_title">Настройки пробуждения</string>
-    <string name="pref_volume_wake_title">Пробуждение громкостью</string>
-    <string name="pref_volume_wake_summary">Нажатие кнопок громче/тише пробуждает устройство. Предназначено для устройств с труднонажимаемой кнопкой питания</string>
 
     <!-- Setting checkbox summary for displaying USB debugging notification -->
     <string name="adb_notify">Уведомление об отладке по USB</string>

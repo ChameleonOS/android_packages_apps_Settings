@@ -514,10 +514,6 @@
     <!-- UI debug settting: kill app long-press back [CHAR LIMIT=50] -->
     <string name="kill_app_longpress_back_summary">戻るボタンを長押ししてフォアグラウンドアプリを終了する</string>
 
-    <!-- Wakeup options -->
-    <string name="display_category_wakeup_options_title">復帰オプション</string>
-    <string name="pref_volume_wake_title">音量ボタンで復帰</string>
-    <string name="pref_volume_wake_summary">音量アップ/ダウンボタンで端末を復帰する</string>
 
     <!-- Quiet hours -->
     <string name="quiet_hours_title">サイレントタイム</string>
