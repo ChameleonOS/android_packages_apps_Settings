@@ -693,7 +693,7 @@
     <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
     <string name="status_bar_show_network_stats_title">Show network speeds</string>
     <string name="status_bar_network_stats_update_title">Update frequency</string>
-    <string name="status_bar_battery_percentage_title">Show battery percentage</string>
+    <string name="status_bar_battery_style_title">Battery style</string>
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
     <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
@@ -1019,5 +1019,14 @@
     <string name="screen_recorder_bitrate_20000000">20000000</string>
     <string name="screen_recorder_bitrate_50000000">50000000</string>
     <string name="screen_recorder_bitrate_100000000">100000000</string>
+
+    <!-- Status bar battery style -->
+    <string name="battery_style_none">None</string>
+    <string name="battery_style_meter">Battery meter</string>
+    <string name="battery_style_meter_show_percentage">Battery meter w/ percent</string>
+    <string name="battery_style_circle">Circle meter</string>
+    <string name="battery_style_circle_show_percentage">Circle meter w/ percent</string>
+    <string name="battery_style_pie">Pie meter</string>
+    <string name="battery_style_pie_show_percentage">Pie meter w/ percent</string>
 
 </resources>

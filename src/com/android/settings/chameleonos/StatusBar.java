@@ -34,7 +34,6 @@ import com.android.settings.Utils;
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
-    private static final String STATUS_BAR_BATTERY_PERCENTAGE = "status_bar_battery_percentage";
     private static final String STATUS_BAR_CLOCK = "status_bar_show_clock";
     private static final String STATUS_BAR_CENTER_CLOCK = "status_bar_center_clock";
     private static final String STATUS_BAR_NETWORK_STATS = "status_bar_show_network_stats";
@@ -44,10 +43,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String SHOW_STATUS_BAR_ON_NOTIFICATION = "show_status_bar_on_notification";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
+    private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarCmSignal;
     private ListPreference mStatusBarNetStatsUpdate;
+    private ListPreference mStatusBarBatteryStyle;
     private CheckBoxPreference mStatusBarClock;
     private CheckBoxPreference mStatusBarCenterClock;
     private CheckBoxPreference mStatusBarNetworkStats;
@@ -55,7 +56,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mShowStatusBarOnNotification;
     private PreferenceCategory mPrefCategoryGeneral;
-    private CheckBoxPreference mStatusBarBatteryPercentage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,10 +69,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCenterClock = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_CENTER_CLOCK);
         mStatusBarNetworkStats = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NETWORK_STATS);
         mStatusBarBrightnessControl = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
-        mStatusBarBatteryPercentage = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BATTERY_PERCENTAGE);
         mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
         mStatusBarNetStatsUpdate = (ListPreference) prefSet.findPreference(STATUS_BAR_NETWORK_STATS_UPDATE);
+        mStatusBarBatteryStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY_STYLE);
 
         mStatusBarClock.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_CLOCK, 1) == 1));
@@ -82,8 +82,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 Settings.System.STATUS_BAR_NETWORK_STATS, 0) == 1));
         mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
-        mStatusBarBatteryPercentage.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0) == 1));
 
         try {
             if (Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -114,6 +112,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
+
+        int batteryStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_BATTERY_STYLE, 1);
+        mStatusBarBatteryStyle.setValue(String.valueOf(batteryStyle));
+        mStatusBarBatteryStyle.setSummary(mStatusBarBatteryStyle.getEntry());
+        mStatusBarBatteryStyle.setOnPreferenceChangeListener(this);
 
         long statsUpdate = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);
@@ -164,6 +168,13 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, updateInterval);
             mStatusBarNetStatsUpdate.setSummary(mStatusBarNetStatsUpdate.getEntries()[index]);
             return true;
+        } else if (preference == mStatusBarBatteryStyle) {
+            int batteryStyle = Integer.valueOf((String) newValue);
+            int index = mStatusBarBatteryStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY_STYLE, batteryStyle);
+            mStatusBarBatteryStyle.setSummary(mStatusBarBatteryStyle.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -200,11 +211,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             value = mShowStatusBarOnNotification.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.SHOW_STATUS_BAR_ON_NOTIFICATION, value ? 1 : 0);
-            return true;
-        } else if (preference == mStatusBarBatteryPercentage) {
-            value = mStatusBarBatteryPercentage.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, value ? 1 : 0);
             return true;
         }
         return false;
