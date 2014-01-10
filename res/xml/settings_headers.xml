@@ -83,7 +83,7 @@
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.thememanager"
-            android:targetClass="com.android.thememanager.activity.ThemeManagerTabActivity" />
+            android:targetClass="com.android.thememanager.activity.ThemeManagerActivity" />
     </header>
 
     <!-- System -->
